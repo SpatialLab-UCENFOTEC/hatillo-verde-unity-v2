@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 6468bfbdaa889dd40a87fa06b6428b8f
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296552
+  packageName: 'Pure Nature 2 : Jungle'
+  packageVersion: 1.1
+  assetPath: Assets/BK/Pure_Common/Shaders/BK_Water.shader
+  uploadId: 745110

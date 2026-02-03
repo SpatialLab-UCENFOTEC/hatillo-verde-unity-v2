@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 7442d6ef2f3c41c0b245febca2a995d0
+labels:
+- Plant
+- Vegetation
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296552
+  packageName: 'Pure Nature 2 : Jungle'
+  packageVersion: 1.1
+  assetPath: Assets/BK/PureNature_Jungle/Prefabs/Plants/Branches.prefab
+  uploadId: 745110

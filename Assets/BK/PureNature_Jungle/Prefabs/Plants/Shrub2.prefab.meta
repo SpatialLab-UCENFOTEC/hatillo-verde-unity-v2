@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: fcdc168621a54501a343494ab54d0ebe
+labels:
+- Plant
+- Vegetation
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296552
+  packageName: 'Pure Nature 2 : Jungle'
+  packageVersion: 1.1
+  assetPath: Assets/BK/PureNature_Jungle/Prefabs/Plants/Shrub2.prefab
+  uploadId: 745110

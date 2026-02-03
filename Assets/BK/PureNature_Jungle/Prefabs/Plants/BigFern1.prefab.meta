@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: b654265e25e14e50b76eff72c171c35f
+labels:
+- Plant
+- Vegetation
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296552
+  packageName: 'Pure Nature 2 : Jungle'
+  packageVersion: 1.1
+  assetPath: Assets/BK/PureNature_Jungle/Prefabs/Plants/BigFern1.prefab
+  uploadId: 745110

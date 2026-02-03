@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 722bf29f20404f65a3a5115901ac11e4
+labels:
+- Rock
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296552
+  packageName: 'Pure Nature 2 : Jungle'
+  packageVersion: 1.1
+  assetPath: Assets/BK/PureNature_Jungle/Prefabs/Rocks/Block_3.prefab
+  uploadId: 745110

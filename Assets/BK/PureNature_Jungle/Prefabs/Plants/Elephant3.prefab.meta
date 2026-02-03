@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 87690da931c143bab751429b4c29de4f
+labels:
+- Plant
+- Vegetation
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296552
+  packageName: 'Pure Nature 2 : Jungle'
+  packageVersion: 1.1
+  assetPath: Assets/BK/PureNature_Jungle/Prefabs/Plants/Elephant3.prefab
+  uploadId: 745110

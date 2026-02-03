@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 4da56a3a7ee24241aad2d119bf4ca046
+labels:
+- Plant
+- Vegetation
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296552
+  packageName: 'Pure Nature 2 : Jungle'
+  packageVersion: 1.1
+  assetPath: Assets/BK/PureNature_Jungle/Prefabs/Plants/ThinFern2.prefab
+  uploadId: 745110

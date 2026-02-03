@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 979b489f74d242a3baf335dd52d0833a
+labels:
+- Cliff
+- Rock
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296552
+  packageName: 'Pure Nature 2 : Jungle'
+  packageVersion: 1.1
+  assetPath: Assets/BK/PureNature_Jungle/Prefabs/Rocks/JungleCliff_4.prefab
+  uploadId: 745110

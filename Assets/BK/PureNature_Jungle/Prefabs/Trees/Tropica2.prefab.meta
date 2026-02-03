@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: c546384177f6450ca5b1d6b129370d76
+labels:
+- Tree
+- Vegetation
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296552
+  packageName: 'Pure Nature 2 : Jungle'
+  packageVersion: 1.1
+  assetPath: Assets/BK/PureNature_Jungle/Prefabs/Trees/Tropica2.prefab
+  uploadId: 745110

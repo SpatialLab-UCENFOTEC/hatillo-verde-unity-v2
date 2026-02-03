@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: ffb0fa16cd0f4534b9cc7d96cb7d386b
+labels:
+- Tree
+- Vegetation
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296552
+  packageName: 'Pure Nature 2 : Jungle'
+  packageVersion: 1.1
+  assetPath: Assets/BK/PureNature_Jungle/Prefabs/Trees/Musa1.prefab
+  uploadId: 745110

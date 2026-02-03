@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 438162c8bb7b49d69fb0bd026aa5a963
+labels:
+- Tree
+- Vegetation
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296552
+  packageName: 'Pure Nature 2 : Jungle'
+  packageVersion: 1.1
+  assetPath: Assets/BK/PureNature_Jungle/Prefabs/Trees/Banana6.prefab
+  uploadId: 745110

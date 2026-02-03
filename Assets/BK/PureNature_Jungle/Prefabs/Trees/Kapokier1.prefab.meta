@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 1fe4a808e46a431aa663a25656646a30
+labels:
+- Tree
+- Vegetation
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296552
+  packageName: 'Pure Nature 2 : Jungle'
+  packageVersion: 1.1
+  assetPath: Assets/BK/PureNature_Jungle/Prefabs/Trees/Kapokier1.prefab
+  uploadId: 745110

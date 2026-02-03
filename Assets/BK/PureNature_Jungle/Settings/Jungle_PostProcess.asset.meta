@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b7a49a47c2b1089499f60603a147a4e8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296552
+  packageName: 'Pure Nature 2 : Jungle'
+  packageVersion: 1.1
+  assetPath: Assets/BK/PureNature_Jungle/Settings/Jungle_PostProcess.asset
+  uploadId: 745110

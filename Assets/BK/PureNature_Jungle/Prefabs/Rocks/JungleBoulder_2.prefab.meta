@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ec2e2151c969462f9ebd188dac9ff2c3
+labels:
+- Rock
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296552
+  packageName: 'Pure Nature 2 : Jungle'
+  packageVersion: 1.1
+  assetPath: Assets/BK/PureNature_Jungle/Prefabs/Rocks/JungleBoulder_2.prefab
+  uploadId: 745110

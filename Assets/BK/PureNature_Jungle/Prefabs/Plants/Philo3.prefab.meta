@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 66bc1f7e77b54f0baa77696b774c301c
+labels:
+- Plant
+- Vegetation
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296552
+  packageName: 'Pure Nature 2 : Jungle'
+  packageVersion: 1.1
+  assetPath: Assets/BK/PureNature_Jungle/Prefabs/Plants/Philo3.prefab
+  uploadId: 745110

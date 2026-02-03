@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: e5fd0c326c7a47bcb6b909b5e35b9993
+labels:
+- Tree
+- Vegetation
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296552
+  packageName: 'Pure Nature 2 : Jungle'
+  packageVersion: 1.1
+  assetPath: Assets/BK/PureNature_Jungle/Prefabs/Trees/Rattle2.prefab
+  uploadId: 745110
