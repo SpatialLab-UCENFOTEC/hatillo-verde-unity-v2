@@ -1,4 +1,13 @@
 ﻿<Solution>
+  <Project Path="LeTai.Common.Editor.csproj" />
+  <Project Path="LeTai.Asset.TranslucentImage.csproj" />
+  <Project Path="LeTai.Asset.TranslucentImage.Demo.csproj" />
+  <Project Path="LeTai.Common.csproj" />
   <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="LeTai.Asset.TranslucentImage.Editor.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="LeTai.TranslucentImage.UniversalRP.csproj" />
+  <Project Path="LeTai.Paraform.Scaffold.csproj" />
+  <Project Path="LeTai.TranslucentImage.UniversalRP.Editor.csproj" />
+  <Project Path="LeTai.Paraform.Scaffold.Editor.csproj" />
 </Solution>
