@@ -5,20 +5,29 @@ using UnityEngine.Video;
 
 public class InfoPanelController : MonoBehaviour
 {
-    // Estado global para bloquear interaccion 3D
     public static bool IsUIOpen = false;
 
+    [Header("Panel Root")]
+    public GameObject infoPanel; // SOLO el popup visual
+
+    [Header("UI References")]
     public TextMeshProUGUI titleText;
     public TextMeshProUGUI descriptionText;
-
     public Image displayImage;
     public RawImage videoDisplay;
-
     public VideoPlayer videoPlayer;
+
+    void Start()
+    {
+        infoPanel.SetActive(false);
+        IsUIOpen = false;
+    }
 
     public void DisplayInfo(InteractableInfo data)
     {
-        IsUIOpen = true; //  Bloquea interaccion 3D
+        // ACTIVAMOS EL PANEL
+        infoPanel.SetActive(true);
+        IsUIOpen = true;
 
         titleText.text = data.title;
         descriptionText.text = data.description;
@@ -33,7 +42,6 @@ public class InfoPanelController : MonoBehaviour
             videoPlayer.source = VideoSource.Url;
             videoPlayer.url = data.videoURL;
 
-            // Evita que el evento se acumule múltiples veces
             videoPlayer.prepareCompleted -= OnVideoPrepared;
             videoPlayer.prepareCompleted += OnVideoPrepared;
 
@@ -45,19 +53,18 @@ public class InfoPanelController : MonoBehaviour
             displayImage.gameObject.SetActive(true);
             displayImage.sprite = data.displayImage;
         }
-
-        gameObject.SetActive(true);
     }
 
     void OnVideoPrepared(VideoPlayer vp)
     {
+        videoDisplay.texture = vp.targetTexture;
         vp.Play();
     }
 
     public void ClosePanel()
     {
         videoPlayer.Stop();
-        IsUIOpen = false; // Reactiva interaccion 3D
-        gameObject.SetActive(false);
+        infoPanel.SetActive(false);
+        IsUIOpen = false;
     }
 }
