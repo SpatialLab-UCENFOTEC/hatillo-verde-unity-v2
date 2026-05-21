@@ -6,13 +6,23 @@ using UnityEngine.UI;
 public class TransitionManager : MonoBehaviour
 {
     [Header("Configuración de Épocas")]
-    [Tooltip("0: Pasado, 1: Presente, 2: Futuro")]
     public GameObject[] environments;
 
-    [Header("Mensajes de Transición")]
-    public string messageToPast = "Regresando al origen...";
-    public string messageToPresent = "Llegando al presente...";
-    public string messageToFuture = "Viajando al futuro degradado...";
+    [Tooltip("Asegúrate de que este orden coincida perfectamente con el de tus entornos.")]
+    public AudioClip[] narrationClips;
+
+    [Tooltip("El texto personalizado que se mostrará para cada transición (ej: Mensaje 1 para el Pasado).")]
+    public string[] transitionMessages;
+
+    [Header("Componentes de Audio")]
+    public AudioSource narrationSource;
+
+    [Header("Outro")]
+    public CanvasGroup outroGroup;
+    public CanvasGroup videoGroup;
+    public TextMeshProUGUI finalMessage;
+    public TextMeshProUGUI counterText;
+    public Button ctaButton;
 
     [Header("UI Referencias")]
     public CanvasGroup fadeGroup;
@@ -29,59 +39,137 @@ public class TransitionManager : MonoBehaviour
     {
         if (fadeGroup != null) fadeGroup.alpha = 0;
         if (transitionText != null) transitionText.alpha = 0;
+        if (outroGroup != null) outroGroup.alpha = 0;
+
+        if (narrationSource == null)
+        {
+            narrationSource = GetComponent<AudioSource>();
+        }
 
         for (int i = 0; i < environments.Length; i++)
         {
-            environments[i].SetActive(i == currentPeriodIndex);
+            if (environments[i] != null)
+                environments[i].SetActive(i == currentPeriodIndex);
         }
 
         UpdateButtons();
     }
 
-    // Llamado por botón Forward
+    // NEXT
     public void NextPeriod()
     {
-        if (currentPeriodIndex < environments.Length - 1 && !isTransitioning)
+        if (isTransitioning) return;
+
+        isTransitioning = true;
+        UpdateButtons();
+
+        if (currentPeriodIndex < environments.Length - 1)
         {
-            currentPeriodIndex++;
-            string msg = (currentPeriodIndex == 1) ? messageToPresent : messageToFuture;
-            StartCoroutine(PerformFullTransition(msg));
+            StartCoroutine(PerformFullTransition(currentPeriodIndex + 1));
+        }
+        else
+        {
+            StartCoroutine(PlayOutro());
         }
     }
 
-    // Llamado por botón Back
     public void PreviousPeriod()
     {
-        if (currentPeriodIndex > 0 && !isTransitioning)
-        {
-            currentPeriodIndex--;
-            string msg = (currentPeriodIndex == 1) ? messageToPresent : messageToPast;
-            StartCoroutine(PerformFullTransition(msg));
-        }
+        if (isTransitioning) return;
+
+        if (currentPeriodIndex > 0)
+            isTransitioning = true;
+        UpdateButtons();
+        StartCoroutine(PerformFullTransition(currentPeriodIndex - 1));
     }
 
-    IEnumerator PerformFullTransition(string message)
+    // REMOVED 'bool forward' since text is now explicitly defined per scene index
+    IEnumerator PerformFullTransition(int targetIndex)
     {
-        isTransitioning = true;
-        UpdateButtons(); // bloquear botones durante transición
+        if (narrationSource != null && narrationSource.isPlaying)
+        {
+            narrationSource.Stop();
+        }
 
-        transitionText.text = message;
+        // --- CUSTOM TEXT IMPLEMENTATION ---
+        // Grab the custom message assigned to this target index from the Inspector
+        if (targetIndex < transitionMessages.Length && !string.IsNullOrEmpty(transitionMessages[targetIndex]))
+        {
+            transitionText.text = transitionMessages[targetIndex];
+        }
+        else
+        {
+            // Fallback just in case a slot is left blank in the inspector
+            transitionText.text = $"Cargando Época {targetIndex + 1}...";
+        }
 
+        // 1. Fade to black and show transition text
         yield return StartCoroutine(FadeCanvas(fadeGroup, 0, 1, 0.5f));
         yield return StartCoroutine(FadeText(transitionText, 0, 1, 0.4f));
 
+        // 2. Change environment while screen is black
+        currentPeriodIndex = targetIndex;
         for (int i = 0; i < environments.Length; i++)
         {
-            environments[i].SetActive(i == currentPeriodIndex);
+            if (environments[i] != null)
+                environments[i].SetActive(i == currentPeriodIndex);
         }
 
-        yield return new WaitForSeconds(1.5f);
+        // 3. Play narration audio
+        if (narrationSource != null && targetIndex < narrationClips.Length && narrationClips[targetIndex] != null)
+        {
+            narrationSource.clip = narrationClips[targetIndex];
+            narrationSource.Play();
 
+            // Wait for audio to finish playing completely
+            yield return new WaitWhile(() => narrationSource.isPlaying);
+        }
+        else
+        {
+            yield return new WaitForSeconds(1.5f);
+        }
+
+        // 4. Fade back out to reveal the new era
         yield return StartCoroutine(FadeText(transitionText, 1, 0, 0.4f));
         yield return StartCoroutine(FadeCanvas(fadeGroup, 1, 0, 0.6f));
 
         isTransitioning = false;
         UpdateButtons();
+    }
+
+    IEnumerator PlayOutro()
+    {
+        if (narrationSource != null && narrationSource.isPlaying)
+        {
+            narrationSource.Stop();
+        }
+
+        yield return StartCoroutine(FadeCanvas(outroGroup, 0, 1, 1f));
+
+        if (videoGroup != null)
+            videoGroup.alpha = 1f;
+
+        int totalFound = Random.Range(10, 100);
+        float t = 0f;
+        while (t < 1.5f)
+        {
+            t += Time.deltaTime;
+            int value = Mathf.RoundToInt(Mathf.Lerp(0, totalFound, t / 1.5f));
+            counterText.text = $"Found: {value}";
+            yield return null;
+        }
+
+        counterText.text = $"Found: {totalFound}";
+
+        yield return StartCoroutine(FadeText(finalMessage, 0, 1, 1f));
+
+        if (ctaButton != null)
+        {
+            ctaButton.gameObject.SetActive(true);
+            ctaButton.interactable = true;
+        }
+
+        isTransitioning = false;
     }
 
     void UpdateButtons()
@@ -90,12 +178,12 @@ public class TransitionManager : MonoBehaviour
             backButton.interactable = currentPeriodIndex > 0 && !isTransitioning;
 
         if (forwardButton != null)
-            forwardButton.interactable = currentPeriodIndex < environments.Length - 1 && !isTransitioning;
+            forwardButton.interactable = !isTransitioning;
     }
 
     IEnumerator FadeCanvas(CanvasGroup cg, float start, float end, float duration)
     {
-        float elapsed = 0;
+        float elapsed = 0f;
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
@@ -107,7 +195,7 @@ public class TransitionManager : MonoBehaviour
 
     IEnumerator FadeText(TextMeshProUGUI txt, float start, float end, float duration)
     {
-        float elapsed = 0;
+        float elapsed = 0f;
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;

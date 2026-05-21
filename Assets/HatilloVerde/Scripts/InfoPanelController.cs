@@ -17,9 +17,13 @@ public class InfoPanelController : MonoBehaviour
     public RawImage videoDisplay;
     public VideoPlayer videoPlayer;
 
+    [Header("UI")]
+    public GameObject closeButton;
+
     void Start()
     {
         infoPanel.SetActive(false);
+        closeButton.SetActive(false);
         IsUIOpen = false;
     }
 
@@ -27,6 +31,7 @@ public class InfoPanelController : MonoBehaviour
     {
         // ACTIVAMOS EL PANEL
         infoPanel.SetActive(true);
+        closeButton.SetActive(true);
         IsUIOpen = true;
 
         titleText.text = data.title;
@@ -65,6 +70,7 @@ public class InfoPanelController : MonoBehaviour
     {
         videoPlayer.Stop();
         infoPanel.SetActive(false);
+        closeButton.SetActive(false);
         IsUIOpen = false;
     }
 }
