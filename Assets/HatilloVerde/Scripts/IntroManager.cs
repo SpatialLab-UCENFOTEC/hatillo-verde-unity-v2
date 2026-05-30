@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine.Video;
+using UnityEngine.UI;
 
 public class IntroManager : MonoBehaviour
 {
@@ -9,6 +11,21 @@ public class IntroManager : MonoBehaviour
     public CanvasGroup subIntroPanel;
     public TextMeshProUGUI subIntroText;
     public GameObject experiencePanel;
+
+    [Header("Video")]
+    public VideoPlayer introVideo;
+
+    [Header("Audio")]
+    public AudioSource subIntroAudioSource;
+    public AudioClip subIntroClip;
+
+    [Header("Botones")]
+    public Button backButton;
+    public Button forwardButton;
+    public Button skipButton;
+    private bool skipRequested = false;
+
+    private bool isIntroPlaying = true;
 
     [Header("Config")]
     public float fadeDuration = 1f;
@@ -28,10 +45,30 @@ public class IntroManager : MonoBehaviour
         introPanel.blocksRaycasts = true;
 
         subIntroText.alpha = 0f;
+
+        // Asignar clip al AudioSource
+        if (subIntroAudioSource != null && subIntroClip != null)
+        {
+            subIntroAudioSource.clip = subIntroClip;
+        }
+
+        isIntroPlaying = true;
+        UpdateButtons();
+
+        if (skipButton != null)
+        {
+            skipButton.gameObject.SetActive(false);
+        }
     }
 
     public void StartExperience()
     {
+        // Detener video
+        if (introVideo != null && introVideo.isPlaying)
+        {
+            introVideo.Stop();
+        }
+
         StartCoroutine(Flow());
     }
 
@@ -40,12 +77,14 @@ public class IntroManager : MonoBehaviour
         yield return StartCoroutine(FadeIntroOut());
         yield return StartCoroutine(SubIntroSequence());
 
-        // IMPORTANT: fully clear UI block state
         introPanel.blocksRaycasts = false;
         subIntroPanel.blocksRaycasts = false;
 
         introPanel.gameObject.SetActive(false);
         subIntroPanel.gameObject.SetActive(false);
+
+        isIntroPlaying = false;
+        UpdateButtons();
 
         experiencePanel.SetActive(true);
     }
@@ -70,7 +109,24 @@ public class IntroManager : MonoBehaviour
     {
         subIntroText.alpha = 0f;
 
+        // Reproducir audio
+        if (subIntroAudioSource != null && subIntroClip != null)
+        {
+            subIntroAudioSource.clip = subIntroClip;
+            subIntroAudioSource.Play();
+        }
+
         float t = 0f;
+
+        skipRequested = false;
+
+        if (skipButton != null)
+        {
+            skipButton.gameObject.SetActive(true);
+            skipButton.interactable = true;
+        }
+
+        // Fade IN texto
         while (t < fadeDuration)
         {
             t += Time.deltaTime;
@@ -80,9 +136,18 @@ public class IntroManager : MonoBehaviour
 
         subIntroText.alpha = 1f;
 
-        yield return new WaitForSeconds(1.5f);
+        // Esperar a que termine el audio
+        if (subIntroAudioSource != null)
+        {
+            yield return new WaitUntil(() => 
+                skipRequested || 
+                !subIntroAudioSource.isPlaying
+            );
+        }
 
         t = 0f;
+
+        // Fade OUT texto
         while (t < fadeDuration)
         {
             t += Time.deltaTime;
@@ -91,5 +156,45 @@ public class IntroManager : MonoBehaviour
         }
 
         subIntroText.alpha = 0f;
+
+        if (skipButton != null)
+        {
+            skipButton.gameObject.SetActive(false);
+        }
+    }
+
+    void UpdateButtons()
+    {
+        if (backButton != null)
+        {
+            backButton.interactable = !isIntroPlaying;
+            backButton.gameObject.SetActive(!isIntroPlaying);
+        }
+
+        if (forwardButton != null)
+        {
+            forwardButton.interactable = !isIntroPlaying;
+            forwardButton.gameObject.SetActive(!isIntroPlaying);
+        }
+    }
+
+    public void SkipSubIntro()
+    {
+        Debug.Log("SKIP PRESIONADO");
+
+        if (skipRequested) return;
+
+        skipRequested = true;
+
+        if (subIntroAudioSource != null)
+        {
+            subIntroAudioSource.Stop();
+        }
+
+        if (skipButton != null)
+        {
+            skipButton.interactable = false;
+            skipButton.gameObject.SetActive(false);
+        }
     }
 }

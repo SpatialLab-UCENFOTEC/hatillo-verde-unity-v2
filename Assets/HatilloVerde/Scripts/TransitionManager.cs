@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class TransitionManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class TransitionManager : MonoBehaviour
     public AudioSource narrationSource;
 
     [Header("Outro")]
+    public VideoPlayer outroVideo;
     public CanvasGroup outroGroup;
     public CanvasGroup videoGroup;
     public TextMeshProUGUI finalMessage;
@@ -31,6 +33,9 @@ public class TransitionManager : MonoBehaviour
     [Header("Botones")]
     public Button backButton;
     public Button forwardButton;
+    public Button skipButton;
+
+    private bool skipRequested = false;
 
     private int currentPeriodIndex = 0;
     private bool isTransitioning = false;
@@ -116,13 +121,24 @@ public class TransitionManager : MonoBehaviour
         }
 
         // 3. Play narration audio
+        skipRequested = false;
+
+        if (skipButton != null)
+        {
+            skipButton.gameObject.SetActive(true);
+            skipButton.interactable = true;
+        }
+
         if (narrationSource != null && targetIndex < narrationClips.Length && narrationClips[targetIndex] != null)
         {
             narrationSource.clip = narrationClips[targetIndex];
             narrationSource.Play();
 
             // Wait for audio to finish playing completely
-            yield return new WaitWhile(() => narrationSource.isPlaying);
+            yield return new WaitUntil(() =>
+                skipRequested ||
+                !narrationSource.isPlaying
+            );
         }
         else
         {
@@ -132,6 +148,11 @@ public class TransitionManager : MonoBehaviour
         // 4. Fade back out to reveal the new era
         yield return StartCoroutine(FadeText(transitionText, 1, 0, 0.4f));
         yield return StartCoroutine(FadeCanvas(fadeGroup, 1, 0, 0.6f));
+
+        if (skipButton != null)
+        {
+            skipButton.gameObject.SetActive(false);
+        }
 
         isTransitioning = false;
         UpdateButtons();
@@ -147,19 +168,35 @@ public class TransitionManager : MonoBehaviour
         yield return StartCoroutine(FadeCanvas(outroGroup, 0, 1, 1f));
 
         if (videoGroup != null)
+        {
+            videoGroup.gameObject.SetActive(true);
             videoGroup.alpha = 1f;
+        }
 
-        int totalFound = Random.Range(10, 100);
+        if (outroVideo != null)
+        {
+            outroVideo.Stop();
+            outroVideo.Play();
+        }
+
+        int totalFound = 0;
+        int totalObjects = 0;
+        if (DiscoveryManager.Instance != null)
+        {
+            totalFound = DiscoveryManager.Instance.GetDiscoveredCount();
+            totalObjects = DiscoveryManager.Instance.GetTotalCount();
+        }
+
         float t = 0f;
         while (t < 1.5f)
         {
             t += Time.deltaTime;
             int value = Mathf.RoundToInt(Mathf.Lerp(0, totalFound, t / 1.5f));
-            counterText.text = $"Found: {value}";
+            counterText.text = $"Found: {value} / {totalObjects}";
             yield return null;
         }
 
-        counterText.text = $"Found: {totalFound}";
+        counterText.text = $"Found: {totalFound} / {totalObjects}";
 
         yield return StartCoroutine(FadeText(finalMessage, 0, 1, 1f));
 
@@ -203,5 +240,23 @@ public class TransitionManager : MonoBehaviour
             yield return null;
         }
         txt.alpha = end;
+    }
+
+    public void SkipTransition()
+    {
+        if (skipRequested) return;
+
+        skipRequested = true;
+
+        if (narrationSource != null)
+        {
+            narrationSource.Stop();
+        }
+
+        if (skipButton != null)
+        {
+            skipButton.interactable = false;
+            skipButton.gameObject.SetActive(false);
+        }
     }
 }

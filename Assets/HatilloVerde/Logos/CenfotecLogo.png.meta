@@ -1,0 +1,1196 @@
+fileFormatVersion: 2
+guid: 2f3b50b2024992e4bb7cf6b51b80a18b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4712121048285973972
+    second: CenfotecLogo_0
+  - first:
+      213: -2286670434382940389
+    second: CenfotecLogo_1
+  - first:
+      213: 708155405554075267
+    second: CenfotecLogo_2
+  - first:
+      213: 5159522564698688883
+    second: CenfotecLogo_3
+  - first:
+      213: 371701517620356347
+    second: CenfotecLogo_4
+  - first:
+      213: 4241441580425572512
+    second: CenfotecLogo_5
+  - first:
+      213: 4391295769874940625
+    second: CenfotecLogo_6
+  - first:
+      213: -912488080063257125
+    second: CenfotecLogo_7
+  - first:
+      213: -6201796706524925831
+    second: CenfotecLogo_8
+  - first:
+      213: -1885219415042996145
+    second: CenfotecLogo_9
+  - first:
+      213: -5547826817211154790
+    second: CenfotecLogo_10
+  - first:
+      213: 8040298136727059696
+    second: CenfotecLogo_11
+  - first:
+      213: -7579972316928191554
+    second: CenfotecLogo_12
+  - first:
+      213: -7032496527108109554
+    second: CenfotecLogo_13
+  - first:
+      213: -6301372897909936628
+    second: CenfotecLogo_14
+  - first:
+      213: -4258589867254304749
+    second: CenfotecLogo_15
+  - first:
+      213: -3519932704504589680
+    second: CenfotecLogo_16
+  - first:
+      213: 343642610449876112
+    second: CenfotecLogo_17
+  - first:
+      213: -4773402566239662934
+    second: CenfotecLogo_18
+  - first:
+      213: 9172841017044888463
+    second: CenfotecLogo_19
+  - first:
+      213: 1859794813238490167
+    second: CenfotecLogo_20
+  - first:
+      213: -8261461685354691574
+    second: CenfotecLogo_21
+  - first:
+      213: -5134376677486490380
+    second: CenfotecLogo_22
+  - first:
+      213: -3712818235134654792
+    second: CenfotecLogo_23
+  - first:
+      213: -7948051779276828408
+    second: CenfotecLogo_24
+  - first:
+      213: 5702354962318358301
+    second: CenfotecLogo_25
+  - first:
+      213: -227493102971370218
+    second: CenfotecLogo_26
+  - first:
+      213: -8361748278392910648
+    second: CenfotecLogo_27
+  - first:
+      213: -74456160816663779
+    second: CenfotecLogo_28
+  - first:
+      213: -3761314465074849493
+    second: CenfotecLogo_29
+  - first:
+      213: 5239655616125062717
+    second: CenfotecLogo_30
+  - first:
+      213: -1833649479612251164
+    second: CenfotecLogo_31
+  - first:
+      213: -5726371968765334282
+    second: CenfotecLogo_32
+  - first:
+      213: -4533486024332202800
+    second: CenfotecLogo_33
+  - first:
+      213: 4672678021410085048
+    second: CenfotecLogo_34
+  - first:
+      213: 8750589621582230689
+    second: CenfotecLogo_35
+  - first:
+      213: -8164285801832252870
+    second: CenfotecLogo_36
+  - first:
+      213: -7431759116834025135
+    second: CenfotecLogo_37
+  - first:
+      213: -5612637644561285116
+    second: CenfotecLogo_38
+  - first:
+      213: -4592765560809835065
+    second: CenfotecLogo_39
+  - first:
+      213: 2388320412492708828
+    second: CenfotecLogo_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CenfotecLogo_0
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 394
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dd0ab5a021d46140800000000000000
+      internalID: 4712121048285973972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 389
+        width: 112
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b177730fa5d1440e0800000000000000
+      internalID: -2286670434382940389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_2
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 310
+        width: 71
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 386c2d1e69fd3d900800000000000000
+      internalID: 708155405554075267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_3
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 424
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37d4a7faf6e4a9740800000000000000
+      internalID: 5159522564698688883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_4
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 424
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf42c389f8c882500800000000000000
+      internalID: 371701517620356347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_5
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 310
+        width: 60
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a076d035a0acda30800000000000000
+      internalID: 4241441580425572512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_6
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 310
+        width: 60
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d242139c3401fc30800000000000000
+      internalID: 4391295769874940625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 193
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd52d0efce03653f0800000000000000
+      internalID: -912488080063257125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_8
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 311
+        width: 59
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 970f46201cacee9a0800000000000000
+      internalID: -6201796706524925831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_9
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 312
+        width: 16
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4841ba2eea56d5e0800000000000000
+      internalID: -1885219415042996145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_10
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 312
+        width: 68
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9e3eb447e82203b0800000000000000
+      internalID: -5547826817211154790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_11
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 310
+        width: 61
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fcf9d75e80e49f60800000000000000
+      internalID: 8040298136727059696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_12
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 312
+        width: 42
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb3533296578ec690800000000000000
+      internalID: -7579972316928191554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_13
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 310
+        width: 61
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0b8d891bad876e90800000000000000
+      internalID: -7032496527108109554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_14
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 312
+        width: 16
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0eedc64cb60d88a0800000000000000
+      internalID: -6301372897909936628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_15
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 310
+        width: 60
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 310ba36241376e4c0800000000000000
+      internalID: -4258589867254304749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_16
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 95
+        width: 82
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09259bacadfa62fc0800000000000000
+      internalID: -3519932704504589680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_17
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 97
+        width: 76
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0948d8d222dd4c400800000000000000
+      internalID: 343642610449876112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_18
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 97
+        width: 88
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aacc85518a771cdb0800000000000000
+      internalID: -4773402566239662934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_19
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 97
+        width: 76
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8be7122e4a7c4f70800000000000000
+      internalID: 9172841017044888463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_20
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 95
+        width: 85
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 734b13e67815fc910800000000000000
+      internalID: 1859794813238490167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_21
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 97
+        width: 84
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a040fe64e54695d80800000000000000
+      internalID: -8261461685354691574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_22
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 97
+        width: 76
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fc0e5b6d970fb8b0800000000000000
+      internalID: -5134376677486490380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_23
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 95
+        width: 82
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b6c43b8c7b697cc0800000000000000
+      internalID: -3712818235134654792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_24
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 18
+        width: 37
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8011bcf6409d2b190800000000000000
+      internalID: -7948051779276828408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_25
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 18
+        width: 36
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d17fb2830a5d22f40800000000000000
+      internalID: 5702354962318358301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_26
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 18
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6154a886a38c7dcf0800000000000000
+      internalID: -227493102971370218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_27
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 18
+        width: 36
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cc08254e3a15fb80800000000000000
+      internalID: -8361748278392910648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_28
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 18
+        width: 37
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d13fe27248a77fef0800000000000000
+      internalID: -74456160816663779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_29
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 18
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b29dcac1c602dcbc0800000000000000
+      internalID: -3761314465074849493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_30
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 18
+        width: 36
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3ec380a50ff6b840800000000000000
+      internalID: 5239655616125062717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_31
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 17
+        width: 41
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e3c12d63819d86e0800000000000000
+      internalID: -1833649479612251164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_32
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 18
+        width: 36
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fcecf5b807d780b0800000000000000
+      internalID: -5726371968765334282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_33
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 18
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dc2b75fa72d511c0800000000000000
+      internalID: -4533486024332202800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_34
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 18
+        width: 37
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b85cef47efa8d040800000000000000
+      internalID: 4672678021410085048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_35
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 18
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a4f0a1f5e6507970800000000000000
+      internalID: 8750589621582230689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_36
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 18
+        width: 35
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3af509c151a2be80800000000000000
+      internalID: -8164285801832252870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_37
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 18
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15156d855761dd890800000000000000
+      internalID: -7431759116834025135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_38
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 18
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40080fe9cc7eb12b0800000000000000
+      internalID: -5612637644561285116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_39
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 18
+        width: 36
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c538435e083340c0800000000000000
+      internalID: -4592765560809835065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CenfotecLogo_40
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 18
+        width: 37
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdb3174e2c4052120800000000000000
+      internalID: 2388320412492708828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      CenfotecLogo_0: 4712121048285973972
+      CenfotecLogo_1: -2286670434382940389
+      CenfotecLogo_10: -5547826817211154790
+      CenfotecLogo_11: 8040298136727059696
+      CenfotecLogo_12: -7579972316928191554
+      CenfotecLogo_13: -7032496527108109554
+      CenfotecLogo_14: -6301372897909936628
+      CenfotecLogo_15: -4258589867254304749
+      CenfotecLogo_16: -3519932704504589680
+      CenfotecLogo_17: 343642610449876112
+      CenfotecLogo_18: -4773402566239662934
+      CenfotecLogo_19: 9172841017044888463
+      CenfotecLogo_2: 708155405554075267
+      CenfotecLogo_20: 1859794813238490167
+      CenfotecLogo_21: -8261461685354691574
+      CenfotecLogo_22: -5134376677486490380
+      CenfotecLogo_23: -3712818235134654792
+      CenfotecLogo_24: -7948051779276828408
+      CenfotecLogo_25: 5702354962318358301
+      CenfotecLogo_26: -227493102971370218
+      CenfotecLogo_27: -8361748278392910648
+      CenfotecLogo_28: -74456160816663779
+      CenfotecLogo_29: -3761314465074849493
+      CenfotecLogo_3: 5159522564698688883
+      CenfotecLogo_30: 5239655616125062717
+      CenfotecLogo_31: -1833649479612251164
+      CenfotecLogo_32: -5726371968765334282
+      CenfotecLogo_33: -4533486024332202800
+      CenfotecLogo_34: 4672678021410085048
+      CenfotecLogo_35: 8750589621582230689
+      CenfotecLogo_36: -8164285801832252870
+      CenfotecLogo_37: -7431759116834025135
+      CenfotecLogo_38: -5612637644561285116
+      CenfotecLogo_39: -4592765560809835065
+      CenfotecLogo_4: 371701517620356347
+      CenfotecLogo_40: 2388320412492708828
+      CenfotecLogo_5: 4241441580425572512
+      CenfotecLogo_6: 4391295769874940625
+      CenfotecLogo_7: -912488080063257125
+      CenfotecLogo_8: -6201796706524925831
+      CenfotecLogo_9: -1885219415042996145
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,9 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class SelectionManager : MonoBehaviour
 {
+    [Header("Interaction")]
+    public LayerMask interactableLayer;
+
     private InteractableHighlight lastHovered;
 
     void Update()
@@ -26,7 +31,7 @@ public class SelectionManager : MonoBehaviour
         RaycastHit hit;
 
         // HOVER
-        if (Physics.Raycast(ray, out hit, 100f))
+        if (Physics.Raycast(ray, out hit, 100f, interactableLayer))
         {
             InteractableHighlight newHover =
                 hit.transform.GetComponentInParent<InteractableHighlight>();
@@ -35,6 +40,7 @@ public class SelectionManager : MonoBehaviour
             {
                 if (lastHovered != null) lastHovered.OnHoverExit();
                 if (newHover != null) newHover.OnHoverEnter();
+
                 lastHovered = newHover;
             }
         }
@@ -50,10 +56,21 @@ public class SelectionManager : MonoBehaviour
         // CLICK
         if (Pointer.current.press.wasPressedThisFrame)
         {
+            // Solo bloquear si clickeamos un botón real
+            if (IsPointerOverBlockingUI())
+            {
+                return;
+            }
+
             if (lastHovered != null)
             {
+                if (!lastHovered.CompareTag("Discoverable"))
+                {
+                    return;
+                }
+
                 InteractableInfo info =
-                    lastHovered.GetComponent<InteractableInfo>();
+                    lastHovered.GetComponentInParent<InteractableInfo>();
 
                 if (info != null)
                 {
@@ -62,5 +79,25 @@ public class SelectionManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    bool IsPointerOverBlockingUI()
+    {
+        PointerEventData pointerData = new PointerEventData(EventSystem.current);
+        pointerData.position = Pointer.current.position.ReadValue();
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, results);
+
+        foreach (RaycastResult result in results)
+        {
+            // SOLO bloquear botones reales
+            if (result.gameObject.GetComponent<Button>() != null)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

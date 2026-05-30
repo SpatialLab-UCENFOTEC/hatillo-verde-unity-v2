@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class InteractableInfo : MonoBehaviour
 {
+    private bool hasBeenDiscovered = false;
+
     [Header("UI Content")]
     public string title;
 
@@ -15,7 +17,18 @@ public class InteractableInfo : MonoBehaviour
 
     public void TriggerPopup()
     {
-        // Encuentra el controlador de la UI, incluso si está inactivo
+        // Solo contar objetos con tag "Discoverable"
+        if (!hasBeenDiscovered && CompareTag("Discoverable"))
+        {
+            hasBeenDiscovered = true;
+
+            if (DiscoveryManager.Instance != null)
+            {
+                DiscoveryManager.Instance.RegisterDiscovery();
+            }
+        }
+
+        // Mostrar popup
         InfoPanelController uiManager =
             Object.FindAnyObjectByType<InfoPanelController>(FindObjectsInactive.Include);
 

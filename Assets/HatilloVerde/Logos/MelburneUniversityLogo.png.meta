@@ -1,0 +1,806 @@
+fileFormatVersion: 2
+guid: 193c30995982f354bba665350d9d9d02
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7998238035498453702
+    second: MelburneUniversityLogo_0
+  - first:
+      213: 2153140158927941634
+    second: MelburneUniversityLogo_1
+  - first:
+      213: -3692735622136404467
+    second: MelburneUniversityLogo_2
+  - first:
+      213: 667019615390359803
+    second: MelburneUniversityLogo_3
+  - first:
+      213: -4242258755996437707
+    second: MelburneUniversityLogo_4
+  - first:
+      213: 2078730891103437773
+    second: MelburneUniversityLogo_5
+  - first:
+      213: 7521314458030012304
+    second: MelburneUniversityLogo_6
+  - first:
+      213: 4204886351080378775
+    second: MelburneUniversityLogo_7
+  - first:
+      213: 7524576403078029475
+    second: MelburneUniversityLogo_8
+  - first:
+      213: -5588573637510169596
+    second: MelburneUniversityLogo_9
+  - first:
+      213: -4127996181469878796
+    second: MelburneUniversityLogo_10
+  - first:
+      213: -6539795813920903380
+    second: MelburneUniversityLogo_11
+  - first:
+      213: -573128413889425476
+    second: MelburneUniversityLogo_12
+  - first:
+      213: -2062424572923141975
+    second: MelburneUniversityLogo_13
+  - first:
+      213: -4966873887337183581
+    second: MelburneUniversityLogo_14
+  - first:
+      213: -838596304223208718
+    second: MelburneUniversityLogo_15
+  - first:
+      213: -171770683767845200
+    second: MelburneUniversityLogo_16
+  - first:
+      213: 2583568007926879031
+    second: MelburneUniversityLogo_17
+  - first:
+      213: -2164691517290971997
+    second: MelburneUniversityLogo_18
+  - first:
+      213: -3347785904224892710
+    second: MelburneUniversityLogo_19
+  - first:
+      213: 608062264603281070
+    second: MelburneUniversityLogo_20
+  - first:
+      213: 3445302324856985689
+    second: MelburneUniversityLogo_21
+  - first:
+      213: 5268777978438786807
+    second: MelburneUniversityLogo_22
+  - first:
+      213: -8240801797918942277
+    second: MelburneUniversityLogo_23
+  - first:
+      213: -6128687834446911141
+    second: MelburneUniversityLogo_24
+  - first:
+      213: 9001574201439977179
+    second: MelburneUniversityLogo_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_0
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 880
+        width: 1575
+        height: 1280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ca47e6ed137ffe60800000000000000
+      internalID: 7998238035498453702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_1
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 593
+        width: 119
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2003784119d71ed10800000000000000
+      internalID: 2153140158927941634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_2
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 593
+        width: 151
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d06e0214484c0ccc0800000000000000
+      internalID: -3692735622136404467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_3
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 590
+        width: 85
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf06f816ecab14900800000000000000
+      internalID: 667019615390359803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_4
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 590
+        width: 143
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 533ba8b43287025c0800000000000000
+      internalID: -4242258755996437707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_5
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 590
+        width: 153
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc30adb5bb229dc10800000000000000
+      internalID: 2078730891103437773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_6
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 593
+        width: 51
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09773e266a3116860800000000000000
+      internalID: 7521314458030012304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_7
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 590
+        width: 150
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 791d80d9bd1ca5a30800000000000000
+      internalID: 4204886351080378775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_8
+      rect:
+        serializedVersion: 2
+        x: 1209
+        y: 590
+        width: 83
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a0a0c62f5aac6860800000000000000
+      internalID: 7524576403078029475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_9
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 593
+        width: 143
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40cf71fd2e56172b0800000000000000
+      internalID: -5588573637510169596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_10
+      rect:
+        serializedVersion: 2
+        x: 1463
+        y: 590
+        width: 76
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f5a151185966b6c0800000000000000
+      internalID: -4127996181469878796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_11
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 593
+        width: 49
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2f68a74b5afd35a0800000000000000
+      internalID: -6539795813920903380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_12
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 593
+        width: 119
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbf007f7eb6db08f0800000000000000
+      internalID: -573128413889425476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_13
+      rect:
+        serializedVersion: 2
+        x: 1756
+        y: 593
+        width: 136
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a021e237cbc063e0800000000000000
+      internalID: -2062424572923141975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_14
+      rect:
+        serializedVersion: 2
+        x: 1954
+        y: 590
+        width: 148
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a68a1dd38e121bb0800000000000000
+      internalID: -4966873887337183581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_15
+      rect:
+        serializedVersion: 2
+        x: 2119
+        y: 593
+        width: 85
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2faf1d8ba15bc54f0800000000000000
+      internalID: -838596304223208718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_16
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 520
+        width: 2006
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0be0133297fbd9df0800000000000000
+      internalID: -171770683767845200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_17
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 242
+        width: 293
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7339b853a6daad320800000000000000
+      internalID: 2583568007926879031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_18
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 242
+        width: 134
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3acf197b88875f1e0800000000000000
+      internalID: -2164691517290971997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_19
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 242
+        width: 141
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad88d9a15764a81d0800000000000000
+      internalID: -3347785904224892710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_20
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 242
+        width: 153
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea68ff27865407800800000000000000
+      internalID: 608062264603281070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_21
+      rect:
+        serializedVersion: 2
+        x: 1057
+        y: 240
+        width: 233
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9589de0e53c20df20800000000000000
+      internalID: 3445302324856985689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_22
+      rect:
+        serializedVersion: 2
+        x: 1321
+        y: 240
+        width: 220
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fe9e3df7a57e1940800000000000000
+      internalID: 5268777978438786807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_23
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 242
+        width: 223
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbb14aa2d6ac2ad80800000000000000
+      internalID: -8240801797918942277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_24
+      rect:
+        serializedVersion: 2
+        x: 1802
+        y: 242
+        width: 235
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b59a880c2e682faa0800000000000000
+      internalID: -6128687834446911141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MelburneUniversityLogo_25
+      rect:
+        serializedVersion: 2
+        x: 2066
+        y: 242
+        width: 131
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bde76283b040cec70800000000000000
+      internalID: 9001574201439977179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MelburneUniversityLogo_0: 7998238035498453702
+      MelburneUniversityLogo_1: 2153140158927941634
+      MelburneUniversityLogo_10: -4127996181469878796
+      MelburneUniversityLogo_11: -6539795813920903380
+      MelburneUniversityLogo_12: -573128413889425476
+      MelburneUniversityLogo_13: -2062424572923141975
+      MelburneUniversityLogo_14: -4966873887337183581
+      MelburneUniversityLogo_15: -838596304223208718
+      MelburneUniversityLogo_16: -171770683767845200
+      MelburneUniversityLogo_17: 2583568007926879031
+      MelburneUniversityLogo_18: -2164691517290971997
+      MelburneUniversityLogo_19: -3347785904224892710
+      MelburneUniversityLogo_2: -3692735622136404467
+      MelburneUniversityLogo_20: 608062264603281070
+      MelburneUniversityLogo_21: 3445302324856985689
+      MelburneUniversityLogo_22: 5268777978438786807
+      MelburneUniversityLogo_23: -8240801797918942277
+      MelburneUniversityLogo_24: -6128687834446911141
+      MelburneUniversityLogo_25: 9001574201439977179
+      MelburneUniversityLogo_3: 667019615390359803
+      MelburneUniversityLogo_4: -4242258755996437707
+      MelburneUniversityLogo_5: 2078730891103437773
+      MelburneUniversityLogo_6: 7521314458030012304
+      MelburneUniversityLogo_7: 4204886351080378775
+      MelburneUniversityLogo_8: 7524576403078029475
+      MelburneUniversityLogo_9: -5588573637510169596
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
