@@ -7,7 +7,7 @@
   <Project Path="LeTai.Asset.TranslucentImage.Editor.csproj" />
   <Project Path="LeTai.TranslucentImage.UniversalRP.Editor.csproj" />
   <Project Path="LeTai.Paraform.Scaffold.csproj" />
-  <Project Path="LeTai.TranslucentImage.UniversalRP.csproj" />
   <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="LeTai.TranslucentImage.UniversalRP.csproj" />
   <Project Path="LeTai.Paraform.Scaffold.Editor.csproj" />
 </Solution>
