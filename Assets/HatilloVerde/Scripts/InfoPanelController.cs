@@ -8,7 +8,7 @@ public class InfoPanelController : MonoBehaviour
     public static bool IsUIOpen = false;
 
     [Header("Panel Root")]
-    public GameObject infoPanel; // SOLO el popup visual
+    public GameObject infoPanel;
 
     [Header("UI References")]
     public TextMeshProUGUI titleText;
@@ -17,6 +17,9 @@ public class InfoPanelController : MonoBehaviour
     public RawImage videoDisplay;
     public VideoPlayer videoPlayer;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+
     [Header("UI")]
     public GameObject closeButton;
 
@@ -24,6 +27,10 @@ public class InfoPanelController : MonoBehaviour
     {
         infoPanel.SetActive(false);
         closeButton.SetActive(false);
+
+        if (videoDisplay != null)
+            videoDisplay.gameObject.SetActive(false);
+
         IsUIOpen = false;
     }
 
@@ -37,8 +44,22 @@ public class InfoPanelController : MonoBehaviour
         titleText.text = data.title;
         descriptionText.text = data.description;
 
-        videoPlayer.Stop();
+        // Detener video anterior
+        if (videoPlayer != null)
+            videoPlayer.Stop();
 
+        // Detener audio anterior
+        if (audioSource != null)
+            audioSource.Stop();
+
+        // Reproducir audio del objeto
+        if (audioSource != null && data.audioClip != null)
+        {
+            audioSource.clip = data.audioClip;
+            audioSource.Play();
+        }
+
+        // Mostrar video si existe
         if (!string.IsNullOrEmpty(data.videoURL) && videoPlayer != null)
         {
             videoDisplay.gameObject.SetActive(true);
@@ -56,7 +77,9 @@ public class InfoPanelController : MonoBehaviour
         {
             videoDisplay.gameObject.SetActive(false);
             displayImage.gameObject.SetActive(true);
-            displayImage.sprite = data.displayImage;
+
+            if (data.displayImage != null)
+                displayImage.sprite = data.displayImage;
         }
     }
 
@@ -68,7 +91,12 @@ public class InfoPanelController : MonoBehaviour
 
     public void ClosePanel()
     {
-        videoPlayer.Stop();
+        if (videoPlayer != null)
+            videoPlayer.Stop();
+
+        if (audioSource != null)
+            audioSource.Stop();
+
         infoPanel.SetActive(false);
         closeButton.SetActive(false);
         IsUIOpen = false;

@@ -13,7 +13,10 @@ public class InteractableInfo : MonoBehaviour
     public Sprite displayImage;
 
     [Header("Optional Multimedia")]
-    public string videoURL; // para WebGL 
+    public string videoURL; // para WebGL
+
+    [Header("Audio")]
+    public AudioClip audioClip;
 
     public void TriggerPopup()
     {
