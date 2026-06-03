@@ -16,7 +16,7 @@ public class InteractableInfo : MonoBehaviour
     public string videoURL; // para WebGL
 
     [Header("Audio")]
-    public AudioClip audioClip;
+    public string audioURL;
 
     public void TriggerPopup()
     {

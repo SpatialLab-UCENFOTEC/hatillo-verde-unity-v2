@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8b8c2e9445dc2de4788c116edf4ba4ee
+guid: f306837577766ca47a5aaa711b1a64ba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4687309882487268517
-    second: coffee_0
+      213: 8622953498289761995
+    second: Jocotes 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: coffee_0
+      name: Jocotes 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5a4e4d1f08bac0140800000000000000
-      internalID: 4687309882487268517
+      spriteID: bcee5443582eaa770800000000000000
+      internalID: 8622953498289761995
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      coffee_0: 4687309882487268517
+      Jocotes 1_0: 8622953498289761995
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

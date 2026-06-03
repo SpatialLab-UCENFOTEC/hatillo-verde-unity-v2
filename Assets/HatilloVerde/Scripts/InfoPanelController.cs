@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using System.Collections;
+using UnityEngine.Networking;
 
 public class InfoPanelController : MonoBehaviour
 {
@@ -23,6 +25,8 @@ public class InfoPanelController : MonoBehaviour
     [Header("UI")]
     public GameObject closeButton;
 
+    private Coroutine currentAudioCoroutine;
+
     void Start()
     {
         infoPanel.SetActive(false);
@@ -36,7 +40,7 @@ public class InfoPanelController : MonoBehaviour
 
     public void DisplayInfo(InteractableInfo data)
     {
-        // ACTIVAMOS EL PANEL
+        // Activar panel
         infoPanel.SetActive(true);
         closeButton.SetActive(true);
         IsUIOpen = true;
@@ -52,11 +56,14 @@ public class InfoPanelController : MonoBehaviour
         if (audioSource != null)
             audioSource.Stop();
 
-        // Reproducir audio del objeto
-        if (audioSource != null && data.audioClip != null)
+        // Cancelar descarga anterior si existe
+        if (currentAudioCoroutine != null)
+            StopCoroutine(currentAudioCoroutine);
+
+        // Reproducir audio desde URL
+        if (audioSource != null && !string.IsNullOrEmpty(data.audioURL))
         {
-            audioSource.clip = data.audioClip;
-            audioSource.Play();
+            currentAudioCoroutine = StartCoroutine(LoadAudio(data.audioURL));
         }
 
         // Mostrar video si existe
@@ -83,14 +90,54 @@ public class InfoPanelController : MonoBehaviour
         }
     }
 
+    private IEnumerator LoadAudio(string url)
+    {
+        AudioType audioType = AudioType.UNKNOWN;
+
+        string lowerUrl = url.ToLower();
+
+        if (lowerUrl.EndsWith(".mp3"))
+            audioType = AudioType.MPEG;
+        else if (lowerUrl.EndsWith(".wav"))
+            audioType = AudioType.WAV;
+        else if (lowerUrl.EndsWith(".ogg"))
+            audioType = AudioType.OGGVORBIS;
+
+        using (UnityWebRequest request =
+               UnityWebRequestMultimedia.GetAudioClip(url, audioType))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                AudioClip clip = DownloadHandlerAudioClip.GetContent(request);
+
+                audioSource.clip = clip;
+                audioSource.Play();
+            }
+            else
+            {
+                Debug.LogError("Error cargando audio: " + request.error);
+            }
+        }
+    }
+
     void OnVideoPrepared(VideoPlayer vp)
     {
-        videoDisplay.texture = vp.targetTexture;
+        if (vp.targetTexture != null)
+            videoDisplay.texture = vp.targetTexture;
+
         vp.Play();
     }
 
     public void ClosePanel()
     {
+        if (currentAudioCoroutine != null)
+        {
+            StopCoroutine(currentAudioCoroutine);
+            currentAudioCoroutine = null;
+        }
+
         if (videoPlayer != null)
             videoPlayer.Stop();
 
