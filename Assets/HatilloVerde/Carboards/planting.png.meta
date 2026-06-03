@@ -1,10 +1,49 @@
 fileFormatVersion: 2
-guid: 33be275485202ed4e97f4d37d7750bf8
+guid: 434be8a1b0878184094a7cafcb4f098d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2696848547944922672
-    second: Indigenas_0
+      213: -9221465987601079823
+    second: planting_0
+  - first:
+      213: -4393028955544264210
+    second: planting_1
+  - first:
+      213: -5711879257040137875
+    second: planting_2
+  - first:
+      213: 2438426490004971639
+    second: planting_3
+  - first:
+      213: -8924035820018769003
+    second: planting_4
+  - first:
+      213: -5015433973879341393
+    second: planting_5
+  - first:
+      213: 7072575658246846440
+    second: planting_6
+  - first:
+      213: 4569007257352664458
+    second: planting_7
+  - first:
+      213: 1652590317619610983
+    second: planting_8
+  - first:
+      213: 2173042765425359686
+    second: planting_9
+  - first:
+      213: 3682505802748271866
+    second: planting_10
+  - first:
+      213: -4594799530282145175
+    second: planting_11
+  - first:
+      213: -4454156696970477285
+    second: planting_12
+  - first:
+      213: 1786015833039663405
+    second: planting_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +152,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Indigenas_0
+      name: planting_0
       rect:
         serializedVersion: 2
-        x: 107
-        y: 84
-        width: 328
-        height: 374
+        x: 66
+        y: 18
+        width: 637
+        height: 612
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,52 +167,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d107beb88ed29ad0800000000000000
-      internalID: -2696848547944922672
+      spriteID: 1f1e0bcaa85c60080800000000000000
+      internalID: -9221465987601079823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Indigenas_1
+      name: planting_2
       rect:
         serializedVersion: 2
-        x: 480
-        y: 56
-        width: 398
-        height: 430
+        x: 756
+        y: 38
+        width: 489
+        height: 592
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 81ac6dc453847634fbde0c5e0c2b2061
-      internalID: 788760670
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Indigenas_2
-      rect:
-        serializedVersion: 2
-        x: 908
-        y: 70
-        width: 399
-        height: 594
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b9fe69aa8bfa0f14c8e5f61e96cb0d0c
-      internalID: -204870750
+      spriteID: d61533c14145bb0b0800000000000000
+      internalID: -5711879257040137875
       vertices: []
       indices: 
       edges: []
@@ -182,7 +199,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 40d394cc004b0fe4f8d089f9333cdcd7
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -190,15 +207,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
-      - key: SpriteEditor.SliceOnImport
-        value: False
+      entries: []
     nameFileIdTable:
-      Indigenas_0: -2696848547944922672
-      Indigenas_1: 788760670
-      Indigenas_2: -204870750
+      planting_0: -9221465987601079823
+      planting_1: -4393028955544264210
+      planting_10: 3682505802748271866
+      planting_11: -4594799530282145175
+      planting_12: -4454156696970477285
+      planting_13: 1786015833039663405
+      planting_2: -5711879257040137875
+      planting_3: 2438426490004971639
+      planting_4: -8924035820018769003
+      planting_5: -5015433973879341393
+      planting_6: 7072575658246846440
+      planting_7: 4569007257352664458
+      planting_8: 1652590317619610983
+      planting_9: 2173042765425359686
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
