@@ -206,6 +206,7 @@ public class TransitionManager : MonoBehaviour
 
     IEnumerator PlayOutro()
     {
+        outroGroup.gameObject.SetActive(true);
         if (narrationSource != null && narrationSource.isPlaying)
         {
             narrationSource.Stop();
@@ -238,11 +239,11 @@ public class TransitionManager : MonoBehaviour
         {
             t += Time.deltaTime;
             int value = Mathf.RoundToInt(Mathf.Lerp(0, totalFound, t / 1.5f));
-            counterText.text = $"Found: {value} / {totalObjects}";
+            counterText.text = $"Encontrados: {value} / {totalObjects}";
             yield return null;
         }
 
-        counterText.text = $"Found: {totalFound} / {totalObjects}";
+        counterText.text = $"Encontrados: {totalFound} / {totalObjects}";
 
         yield return StartCoroutine(FadeText(finalMessage, 0, 1, 1f));
 
