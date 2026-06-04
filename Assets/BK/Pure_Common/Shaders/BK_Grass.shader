@@ -438,7 +438,7 @@ Shader "BK/Grass"
 				    11, 59,  7, 55, 10, 58,  6, 54,
 				    43, 27, 39, 23, 42, 26, 38, 22};
 				uint r = y * 8 + x;
-				return frac( 52.9829189 * frac( dot( float2( float( x ), float( y ) ), float2( 0.06711056, 0.00583715 ) ) ) ); // IGN dither: const-array dynamic index miscompiles to 0 on Apple GPU family 9 (M3 / A17 Pro) -> step(0,a)=1 -> opaque foliage
+				return 0.5; // hard alpha clip 0.5 - const-array dynamic index miscompila a 0 en Apple GPU fam9 (M3/A17) -> follaje opaco
 			}
 			
 
@@ -639,7 +639,7 @@ Shader "BK/Grass"
 				#endif
 
 				#if defined(LOD_FADE_CROSSFADE)
-					LODFadeCrossFade( input.positionCS );
+					// LODFadeCrossFade( input.positionCS ); // OFF: dither de LOD crossfade (puntos en arboles de Terrain)
 				#endif
 
 				#if defined(MAIN_LIGHT_CALCULATE_SHADOWS)
@@ -1155,7 +1155,7 @@ Shader "BK/Grass"
 				    11, 59,  7, 55, 10, 58,  6, 54,
 				    43, 27, 39, 23, 42, 26, 38, 22};
 				uint r = y * 8 + x;
-				return frac( 52.9829189 * frac( dot( float2( float( x ), float( y ) ), float2( 0.06711056, 0.00583715 ) ) ) ); // IGN dither: const-array dynamic index miscompiles to 0 on Apple GPU family 9 (M3 / A17 Pro) -> step(0,a)=1 -> opaque foliage
+				return 0.5; // hard alpha clip 0.5 - const-array dynamic index miscompila a 0 en Apple GPU fam9 (M3/A17) -> follaje opaco
 			}
 			
 
@@ -1361,7 +1361,7 @@ Shader "BK/Grass"
 				#endif
 
 				#if defined(LOD_FADE_CROSSFADE)
-					LODFadeCrossFade( input.positionCS );
+					// LODFadeCrossFade( input.positionCS ); // OFF: dither de LOD crossfade (puntos en arboles de Terrain)
 				#endif
 
 				#if defined( ASE_DEPTH_WRITE_ON )
@@ -1559,7 +1559,7 @@ Shader "BK/Grass"
 				    11, 59,  7, 55, 10, 58,  6, 54,
 				    43, 27, 39, 23, 42, 26, 38, 22};
 				uint r = y * 8 + x;
-				return frac( 52.9829189 * frac( dot( float2( float( x ), float( y ) ), float2( 0.06711056, 0.00583715 ) ) ) ); // IGN dither: const-array dynamic index miscompiles to 0 on Apple GPU family 9 (M3 / A17 Pro) -> step(0,a)=1 -> opaque foliage
+				return 0.5; // hard alpha clip 0.5 - const-array dynamic index miscompila a 0 en Apple GPU fam9 (M3/A17) -> follaje opaco
 			}
 			
 
@@ -1749,7 +1749,7 @@ Shader "BK/Grass"
 				#endif
 
 				#if defined(LOD_FADE_CROSSFADE)
-					LODFadeCrossFade( input.positionCS );
+					// LODFadeCrossFade( input.positionCS ); // OFF: dither de LOD crossfade (puntos en arboles de Terrain)
 				#endif
 
 				#if defined( ASE_DEPTH_WRITE_ON )
@@ -1942,7 +1942,7 @@ Shader "BK/Grass"
 				    11, 59,  7, 55, 10, 58,  6, 54,
 				    43, 27, 39, 23, 42, 26, 38, 22};
 				uint r = y * 8 + x;
-				return frac( 52.9829189 * frac( dot( float2( float( x ), float( y ) ), float2( 0.06711056, 0.00583715 ) ) ) ); // IGN dither: const-array dynamic index miscompiles to 0 on Apple GPU family 9 (M3 / A17 Pro) -> step(0,a)=1 -> opaque foliage
+				return 0.5; // hard alpha clip 0.5 - const-array dynamic index miscompila a 0 en Apple GPU fam9 (M3/A17) -> follaje opaco
 			}
 			
 
@@ -2341,7 +2341,7 @@ Shader "BK/Grass"
 				    11, 59,  7, 55, 10, 58,  6, 54,
 				    43, 27, 39, 23, 42, 26, 38, 22};
 				uint r = y * 8 + x;
-				return frac( 52.9829189 * frac( dot( float2( float( x ), float( y ) ), float2( 0.06711056, 0.00583715 ) ) ) ); // IGN dither: const-array dynamic index miscompiles to 0 on Apple GPU family 9 (M3 / A17 Pro) -> step(0,a)=1 -> opaque foliage
+				return 0.5; // hard alpha clip 0.5 - const-array dynamic index miscompila a 0 en Apple GPU fam9 (M3/A17) -> follaje opaco
 			}
 			
 
@@ -2744,7 +2744,7 @@ Shader "BK/Grass"
 				    11, 59,  7, 55, 10, 58,  6, 54,
 				    43, 27, 39, 23, 42, 26, 38, 22};
 				uint r = y * 8 + x;
-				return frac( 52.9829189 * frac( dot( float2( float( x ), float( y ) ), float2( 0.06711056, 0.00583715 ) ) ) ); // IGN dither: const-array dynamic index miscompiles to 0 on Apple GPU family 9 (M3 / A17 Pro) -> step(0,a)=1 -> opaque foliage
+				return 0.5; // hard alpha clip 0.5 - const-array dynamic index miscompila a 0 en Apple GPU fam9 (M3/A17) -> follaje opaco
 			}
 			
 
@@ -2970,7 +2970,7 @@ Shader "BK/Grass"
 				#endif
 
 				#if defined(LOD_FADE_CROSSFADE)
-					LODFadeCrossFade( input.positionCS );
+					// LODFadeCrossFade( input.positionCS ); // OFF: dither de LOD crossfade (puntos en arboles de Terrain)
 				#endif
 
 				#if defined( ASE_DEPTH_WRITE_ON )
@@ -3257,7 +3257,7 @@ Shader "BK/Grass"
 				    11, 59,  7, 55, 10, 58,  6, 54,
 				    43, 27, 39, 23, 42, 26, 38, 22};
 				uint r = y * 8 + x;
-				return frac( 52.9829189 * frac( dot( float2( float( x ), float( y ) ), float2( 0.06711056, 0.00583715 ) ) ) ); // IGN dither: const-array dynamic index miscompiles to 0 on Apple GPU family 9 (M3 / A17 Pro) -> step(0,a)=1 -> opaque foliage
+				return 0.5; // hard alpha clip 0.5 - const-array dynamic index miscompila a 0 en Apple GPU fam9 (M3/A17) -> follaje opaco
 			}
 			
 
@@ -3449,7 +3449,7 @@ Shader "BK/Grass"
 				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
 
 				#if defined(LOD_FADE_CROSSFADE)
-					LODFadeCrossFade( input.positionCS );
+					// LODFadeCrossFade( input.positionCS ); // OFF: dither de LOD crossfade (puntos en arboles de Terrain)
 				#endif
 
 				#if defined(MAIN_LIGHT_CALCULATE_SHADOWS)
@@ -3834,7 +3834,7 @@ Shader "BK/Grass"
 				    11, 59,  7, 55, 10, 58,  6, 54,
 				    43, 27, 39, 23, 42, 26, 38, 22};
 				uint r = y * 8 + x;
-				return frac( 52.9829189 * frac( dot( float2( float( x ), float( y ) ), float2( 0.06711056, 0.00583715 ) ) ) ); // IGN dither: const-array dynamic index miscompiles to 0 on Apple GPU family 9 (M3 / A17 Pro) -> step(0,a)=1 -> opaque foliage
+				return 0.5; // hard alpha clip 0.5 - const-array dynamic index miscompila a 0 en Apple GPU fam9 (M3/A17) -> follaje opaco
 			}
 			
 
@@ -4213,7 +4213,7 @@ Shader "BK/Grass"
 				    11, 59,  7, 55, 10, 58,  6, 54,
 				    43, 27, 39, 23, 42, 26, 38, 22};
 				uint r = y * 8 + x;
-				return frac( 52.9829189 * frac( dot( float2( float( x ), float( y ) ), float2( 0.06711056, 0.00583715 ) ) ) ); // IGN dither: const-array dynamic index miscompiles to 0 on Apple GPU family 9 (M3 / A17 Pro) -> step(0,a)=1 -> opaque foliage
+				return 0.5; // hard alpha clip 0.5 - const-array dynamic index miscompila a 0 en Apple GPU fam9 (M3/A17) -> follaje opaco
 			}
 			
 
@@ -4601,7 +4601,7 @@ Shader "BK/Grass"
 				    11, 59,  7, 55, 10, 58,  6, 54,
 				    43, 27, 39, 23, 42, 26, 38, 22};
 				uint r = y * 8 + x;
-				return frac( 52.9829189 * frac( dot( float2( float( x ), float( y ) ), float2( 0.06711056, 0.00583715 ) ) ) ); // IGN dither: const-array dynamic index miscompiles to 0 on Apple GPU family 9 (M3 / A17 Pro) -> step(0,a)=1 -> opaque foliage
+				return 0.5; // hard alpha clip 0.5 - const-array dynamic index miscompila a 0 en Apple GPU fam9 (M3/A17) -> follaje opaco
 			}
 			
 
@@ -4724,7 +4724,7 @@ Shader "BK/Grass"
 				#endif
 
 				#if defined(LOD_FADE_CROSSFADE)
-					LODFadeCrossFade( input.positionCS );
+					// LODFadeCrossFade( input.positionCS ); // OFF: dither de LOD crossfade (puntos en arboles de Terrain)
 				#endif
 
 				#if defined( ASE_DEPTH_WRITE_ON )
