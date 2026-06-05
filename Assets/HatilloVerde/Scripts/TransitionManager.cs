@@ -17,8 +17,6 @@ public class TransitionManager : MonoBehaviour
 
     [Header("Componentes de Audio")]
     public AudioSource narrationSource;
-    public AudioSource ambientSource;
-    public AudioClip[] ambientClips;
 
 
     [Header("Outro")]
@@ -45,7 +43,6 @@ public class TransitionManager : MonoBehaviour
 
     void Start()
     {
-        PlayAmbient(currentPeriodIndex);
 
         if (fadeGroup != null) fadeGroup.alpha = 0;
         if (transitionText != null) transitionText.alpha = 0;
@@ -63,18 +60,6 @@ public class TransitionManager : MonoBehaviour
         }
 
         UpdateButtons();
-    }
-    void PlayAmbient(int index)
-    {
-        if (ambientSource == null) return;
-
-        if (index < ambientClips.Length &&
-            ambientClips[index] != null)
-        {
-            ambientSource.clip = ambientClips[index];
-            ambientSource.loop = true;
-            ambientSource.Play();
-        }
     }
 
     // NEXT
@@ -112,12 +97,6 @@ public class TransitionManager : MonoBehaviour
     // REMOVED 'bool forward' since text is now explicitly defined per scene index
     IEnumerator PerformFullTransition(int targetIndex)
     {
-        if (ambientSource != null)
-        {
-            yield return StartCoroutine(
-                FadeOutAudio(ambientSource, 0.5f)
-            );
-        }
 
         if (narrationSource != null && narrationSource.isPlaying)
         {
@@ -177,7 +156,6 @@ public class TransitionManager : MonoBehaviour
         yield return StartCoroutine(FadeText(transitionText, 1, 0, 0.4f));
         yield return StartCoroutine(FadeCanvas(fadeGroup, 1, 0, 0.6f));
 
-        PlayAmbient(currentPeriodIndex);
 
         if (skipButton != null)
         {
@@ -186,22 +164,6 @@ public class TransitionManager : MonoBehaviour
 
         isTransitioning = false;
         UpdateButtons();
-    }
-    IEnumerator FadeOutAudio(AudioSource source, float duration)
-    {
-        float startVolume = source.volume;
-
-        float t = 0f;
-
-        while (t < duration)
-        {
-            t += Time.deltaTime;
-            source.volume = Mathf.Lerp(startVolume, 0f, t / duration);
-            yield return null;
-        }
-
-        source.Stop();
-        source.volume = startVolume;
     }
 
     IEnumerator PlayOutro()
