@@ -268,6 +268,14 @@ public class TransitionManager : MonoBehaviour
             creditsButton.interactable = true;
         }
 
+        // El botón "Volver" se activa por onClick del botón Créditos (en escena),
+        // pero su m_Interactable viene en 0; lo dejamos preparado como interactivo
+        // para que responda al click cuando se muestre.
+        if (closeCreditsButton != null)
+        {
+            closeCreditsButton.interactable = true;
+        }
+
         isTransitioning = false;
     }
 
@@ -325,6 +333,19 @@ public class TransitionManager : MonoBehaviour
     public void CloseCredits()
     {
         Debug.Log("VOLVER CLICKED");
+
+        // El onClick (en escena) ya desactiva el panel de créditos.
+        // Aquí restablecemos el estado de los botones para poder reabrirlo.
+        if (closeCreditsButton != null)
+        {
+            closeCreditsButton.gameObject.SetActive(false);
+        }
+
+        if (creditsButton != null)
+        {
+            creditsButton.gameObject.SetActive(true);
+            creditsButton.interactable = true;
+        }
     }
 
     public void SkipTransition()
