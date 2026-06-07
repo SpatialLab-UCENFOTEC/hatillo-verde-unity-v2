@@ -65,7 +65,7 @@ public class DiscoveryManager : MonoBehaviour
     {
         if (counterText != null)
         {
-            counterText.text = discoveredObjects + " / " + totalObjects;
+            counterText.text = "Encontrados: " + discoveredObjects + " / " + totalObjects;
         }
     }
 }

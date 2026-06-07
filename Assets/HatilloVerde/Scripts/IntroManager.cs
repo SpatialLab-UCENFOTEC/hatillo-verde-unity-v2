@@ -22,8 +22,6 @@ public class IntroManager : MonoBehaviour
     [Header("Botones")]
     public Button backButton;
     public Button forwardButton;
-    public Button skipButton;
-    private bool skipRequested = false;
 
     private bool isIntroPlaying = true;
 
@@ -55,10 +53,6 @@ public class IntroManager : MonoBehaviour
         isIntroPlaying = true;
         UpdateButtons();
 
-        if (skipButton != null)
-        {
-            skipButton.gameObject.SetActive(false);
-        }
     }
 
     public void StartExperience()
@@ -118,14 +112,6 @@ public class IntroManager : MonoBehaviour
 
         float t = 0f;
 
-        skipRequested = false;
-
-        if (skipButton != null)
-        {
-            skipButton.gameObject.SetActive(true);
-            skipButton.interactable = true;
-        }
-
         // Fade IN texto
         while (t < fadeDuration)
         {
@@ -139,10 +125,7 @@ public class IntroManager : MonoBehaviour
         // Esperar a que termine el audio
         if (subIntroAudioSource != null)
         {
-            yield return new WaitUntil(() => 
-                skipRequested || 
-                !subIntroAudioSource.isPlaying
-            );
+            yield return new WaitUntil(() => !subIntroAudioSource.isPlaying);
         }
 
         t = 0f;
@@ -157,10 +140,6 @@ public class IntroManager : MonoBehaviour
 
         subIntroText.alpha = 0f;
 
-        if (skipButton != null)
-        {
-            skipButton.gameObject.SetActive(false);
-        }
     }
 
     void UpdateButtons()
@@ -178,23 +157,5 @@ public class IntroManager : MonoBehaviour
         }
     }
 
-    public void SkipSubIntro()
-    {
-        Debug.Log("SKIP PRESIONADO");
-
-        if (skipRequested) return;
-
-        skipRequested = true;
-
-        if (subIntroAudioSource != null)
-        {
-            subIntroAudioSource.Stop();
-        }
-
-        if (skipButton != null)
-        {
-            skipButton.interactable = false;
-            skipButton.gameObject.SetActive(false);
-        }
-    }
+    
 }

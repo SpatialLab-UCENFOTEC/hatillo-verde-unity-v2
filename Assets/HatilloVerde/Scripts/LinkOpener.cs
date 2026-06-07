@@ -14,6 +14,7 @@ public class LinkOpener : MonoBehaviour
 
     public void OpenLink()
     {
+        Debug.Log("CTA CLICKED");
         Open(url);
     }
 

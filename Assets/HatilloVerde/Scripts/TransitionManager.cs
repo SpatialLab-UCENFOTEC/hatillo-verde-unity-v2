@@ -25,7 +25,7 @@ public class TransitionManager : MonoBehaviour
     public CanvasGroup videoGroup;
     public TextMeshProUGUI finalMessage;
     public TextMeshProUGUI counterText;
-    public Button ctaButton;
+    
 
     [Header("UI Referencias")]
     public CanvasGroup fadeGroup;
@@ -35,6 +35,9 @@ public class TransitionManager : MonoBehaviour
     public Button backButton;
     public Button forwardButton;
     public Button skipButton;
+    public Button ctaButton;
+    public Button creditsButton;
+    public Button closeCreditsButton;
 
     private bool skipRequested = false;
 
@@ -44,9 +47,24 @@ public class TransitionManager : MonoBehaviour
     void Start()
     {
 
-        if (fadeGroup != null) fadeGroup.alpha = 0;
-        if (transitionText != null) transitionText.alpha = 0;
-        if (outroGroup != null) outroGroup.alpha = 0;
+        if (fadeGroup != null)
+        {
+            fadeGroup.alpha = 0;
+            fadeGroup.interactable = false;
+            fadeGroup.blocksRaycasts = false;
+        }
+
+        if (transitionText != null)
+        {
+            transitionText.alpha = 0;
+        }
+
+        if (outroGroup != null)
+        {
+            outroGroup.alpha = 0;
+            outroGroup.interactable = false;
+            outroGroup.blocksRaycasts = false;
+        }
 
         if (narrationSource == null)
         {
@@ -57,6 +75,26 @@ public class TransitionManager : MonoBehaviour
         {
             if (environments[i] != null)
                 environments[i].SetActive(i == currentPeriodIndex);
+        }
+
+        if (skipButton != null)
+        {
+            skipButton.gameObject.SetActive(false);
+        }
+
+        if (ctaButton != null)
+        {
+            ctaButton.gameObject.SetActive(false);
+        }
+
+        if (creditsButton != null)
+        {
+            creditsButton.gameObject.SetActive(false);
+        }
+
+        if (closeCreditsButton != null)
+        {
+            closeCreditsButton.gameObject.SetActive(false);
         }
 
         UpdateButtons();
@@ -169,6 +207,11 @@ public class TransitionManager : MonoBehaviour
     IEnumerator PlayOutro()
     {
         outroGroup.gameObject.SetActive(true);
+
+        // Habilitar interacción del panel final
+        outroGroup.interactable = true;
+        outroGroup.blocksRaycasts = true;
+
         if (narrationSource != null && narrationSource.isPlaying)
         {
             narrationSource.Stop();
@@ -211,8 +254,18 @@ public class TransitionManager : MonoBehaviour
 
         if (ctaButton != null)
         {
+            Debug.Log("CTA SHOWN");
+
             ctaButton.gameObject.SetActive(true);
             ctaButton.interactable = true;
+        }
+
+        if (creditsButton != null)
+        {
+            Debug.Log("CREDITS BUTTON SHOWN");
+
+            creditsButton.gameObject.SetActive(true);
+            creditsButton.interactable = true;
         }
 
         isTransitioning = false;
@@ -229,14 +282,32 @@ public class TransitionManager : MonoBehaviour
 
     IEnumerator FadeCanvas(CanvasGroup cg, float start, float end, float duration)
     {
+        if (cg == null) yield break;
+
+        // Si se está mostrando el panel, habilitamos interacción
+        if (end > 0f)
+        {
+            cg.interactable = true;
+            cg.blocksRaycasts = true;
+        }
+
         float elapsed = 0f;
+
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
             cg.alpha = Mathf.Lerp(start, end, elapsed / duration);
             yield return null;
         }
+
         cg.alpha = end;
+
+        // Si quedó invisible, deshabilitamos interacción
+        if (end <= 0f)
+        {
+            cg.interactable = false;
+            cg.blocksRaycasts = false;
+        }
     }
 
     IEnumerator FadeText(TextMeshProUGUI txt, float start, float end, float duration)
@@ -251,8 +322,15 @@ public class TransitionManager : MonoBehaviour
         txt.alpha = end;
     }
 
+    public void CloseCredits()
+    {
+        Debug.Log("VOLVER CLICKED");
+    }
+
     public void SkipTransition()
     {
+        Debug.Log("SKIP CLICKED");
+
         if (skipRequested) return;
 
         skipRequested = true;
