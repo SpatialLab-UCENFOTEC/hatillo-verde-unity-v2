@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableInfo
   title: Armadillos
-  description: "Dasypus novemcinctus es una especie de armadillo de tama\xF1o peque\xF1o
+  description: "<i>Dasypus novemcinctus</i> es una especie de armadillo de tama\xF1o peque\xF1o
     a mediano, caracterizada por su caparaz\xF3n de nueve bandas y habita en cuevas,
     huecos, pastizales, bosques tropicales y \xE1reas secas. "
   displayImage: {fileID: 0}

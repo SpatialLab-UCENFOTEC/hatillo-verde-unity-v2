@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b775b3d4058b44a98a4bf13b055763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableInfo
-  title: Melozone cabanisi
-  description: "El pinz\xF3n costarricense, Melozone cabanisi, es una de las 7 aves
+  title: <i>Melozone cabanisi</i>
+  description: "El pinz\xF3n costarricense, <i>Melozone cabanisi</i>, es una de las 7 aves
     end\xE9micas de Costa Rica. Esto significa que en todo el mundo, solo se encuentran
     en nuestro pa\xEDs. Adem\xE1s, el pinz\xF3n cafetalero se restringe a poblaciones
     peque\xF1as en el Valle Central y Monteverde. Se alimentan de semillas y artr\xF3podos

@@ -23,7 +23,11 @@ public class IntroManager : MonoBehaviour
     public Button backButton;
     public Button forwardButton;
 
+    [Tooltip("Botón 'Saltar' duplicado en el canvas del intro (el original vive bajo fadeGroup y está oculto durante el intro).")]
+    public Button skipButton;
+
     private bool isIntroPlaying = true;
+    private bool skipIntroRequested = false;
 
     [Header("Config")]
     public float fadeDuration = 1f;
@@ -48,6 +52,14 @@ public class IntroManager : MonoBehaviour
         if (subIntroAudioSource != null && subIntroClip != null)
         {
             subIntroAudioSource.clip = subIntroClip;
+        }
+
+        // Skip de la primera transición: oculto al inicio; onClick cableado por
+        // código para no depender del inspector del botón duplicado.
+        if (skipButton != null)
+        {
+            skipButton.gameObject.SetActive(false);
+            skipButton.onClick.AddListener(SkipIntro);
         }
 
         isIntroPlaying = true;
@@ -102,6 +114,7 @@ public class IntroManager : MonoBehaviour
     IEnumerator SubIntroSequence()
     {
         subIntroText.alpha = 0f;
+        skipIntroRequested = false;
 
         // Reproducir audio
         if (subIntroAudioSource != null && subIntroClip != null)
@@ -109,6 +122,16 @@ public class IntroManager : MonoBehaviour
             subIntroAudioSource.clip = subIntroClip;
             subIntroAudioSource.Play();
         }
+
+        // Mostrar el botón Saltar y habilitar la interacción del panel para que
+        // reciba clics (el subIntroPanel viene con blocksRaycasts en false).
+        if (skipButton != null)
+        {
+            skipButton.gameObject.SetActive(true);
+            skipButton.interactable = true;
+        }
+        subIntroPanel.interactable = true;
+        subIntroPanel.blocksRaycasts = true;
 
         float t = 0f;
 
@@ -122,11 +145,19 @@ public class IntroManager : MonoBehaviour
 
         subIntroText.alpha = 1f;
 
-        // Esperar a que termine el audio
+        // Esperar a que termine el audio o a que el usuario lo salte
         if (subIntroAudioSource != null)
         {
-            yield return new WaitUntil(() => !subIntroAudioSource.isPlaying);
+            yield return new WaitUntil(() => skipIntroRequested || !subIntroAudioSource.isPlaying);
         }
+
+        // Ocultar el botón Saltar y restaurar el panel a no interactivo
+        if (skipButton != null)
+        {
+            skipButton.gameObject.SetActive(false);
+        }
+        subIntroPanel.interactable = false;
+        subIntroPanel.blocksRaycasts = false;
 
         t = 0f;
 
@@ -140,6 +171,25 @@ public class IntroManager : MonoBehaviour
 
         subIntroText.alpha = 0f;
 
+    }
+
+    // Salta la narración de la primera transición (intro).
+    public void SkipIntro()
+    {
+        if (skipIntroRequested) return;
+
+        skipIntroRequested = true;
+
+        if (subIntroAudioSource != null)
+        {
+            subIntroAudioSource.Stop();
+        }
+
+        if (skipButton != null)
+        {
+            skipButton.interactable = false;
+            skipButton.gameObject.SetActive(false);
+        }
     }
 
     void UpdateButtons()

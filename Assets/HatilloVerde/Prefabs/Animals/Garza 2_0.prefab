@@ -110,7 +110,7 @@ MonoBehaviour:
   description: "Las garzas son aves acu\xE1ticas de la Familia Ardeidae. Sus largas
     patas mantienen sus plumas secas cuando caminan a trav\xE9s de los cuerpos de
     agua, mientras que su gran y filoso pico les sirve de lanza para pescar. La garza
-    m\xE1s abundante en nuestro pa\xEDs es la garza blanca, Ardea alba, y est\xE1
+    m\xE1s abundante en nuestro pa\xEDs es la garza blanca, <i>Ardea alba</i>, y est\xE1
     presente en todos los continentes excepto la Ant\xE1rtida "
   displayImage: {fileID: -5194773139280150760, guid: bbcddb408ca9b1e41bec8f03998ffb59, type: 3}
   videoURL: 

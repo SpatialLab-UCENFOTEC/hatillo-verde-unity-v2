@@ -39,6 +39,9 @@ public class TransitionManager : MonoBehaviour
     public Button creditsButton;
     public Button closeCreditsButton;
 
+    [Tooltip("Botón 'Volver' del outro: regresa a la experiencia (última época) ocultando el panel final.")]
+    public Button outroBackButton;
+
     private bool skipRequested = false;
 
     private int currentPeriodIndex = 0;
@@ -95,6 +98,14 @@ public class TransitionManager : MonoBehaviour
         if (closeCreditsButton != null)
         {
             closeCreditsButton.gameObject.SetActive(false);
+        }
+
+        // Botón "Volver" del outro: oculto fuera del outro; onClick cableado por
+        // código para no depender del inspector.
+        if (outroBackButton != null)
+        {
+            outroBackButton.gameObject.SetActive(false);
+            outroBackButton.onClick.AddListener(ReturnToExperience);
         }
 
         UpdateButtons();
@@ -217,6 +228,49 @@ public class TransitionManager : MonoBehaviour
             narrationSource.Stop();
         }
 
+        int totalFound = 0;
+        int totalObjects = 0;
+        if (DiscoveryManager.Instance != null)
+        {
+            totalFound = DiscoveryManager.Instance.GetDiscoveredCount();
+            totalObjects = DiscoveryManager.Instance.GetTotalCount();
+        }
+
+        // Preparar todo el contenido (texto y botones) ANTES del fade del panel
+        // para que entre con el único fade del canvas, sin fades por elemento.
+        if (finalMessage != null) finalMessage.alpha = 1f;
+        if (counterText != null)
+            counterText.text = $"Elementos encontrados: 0 / {totalObjects}";
+
+        if (ctaButton != null)
+        {
+            ctaButton.gameObject.SetActive(true);
+            ctaButton.interactable = true;
+        }
+
+        if (creditsButton != null)
+        {
+            creditsButton.gameObject.SetActive(true);
+            creditsButton.interactable = true;
+        }
+
+        // El botón "Volver" de créditos viene con m_Interactable en 0; lo dejamos
+        // listo para responder al click cuando se muestre.
+        if (closeCreditsButton != null)
+        {
+            closeCreditsButton.interactable = true;
+        }
+
+        if (outroBackButton != null)
+        {
+            outroBackButton.gameObject.SetActive(true);
+            outroBackButton.interactable = true;
+        }
+
+        // Outro listo: ya no estamos en transición.
+        isTransitioning = false;
+
+        // Fade único de todo el panel (incluye textos y botones).
         yield return StartCoroutine(FadeCanvas(outroGroup, 0, 1, 1f));
 
         if (videoGroup != null)
@@ -231,52 +285,61 @@ public class TransitionManager : MonoBehaviour
             outroVideo.Play();
         }
 
-        int totalFound = 0;
-        int totalObjects = 0;
-        if (DiscoveryManager.Instance != null)
+        // Conteo del contador (animación numérica, no fade) ya con el panel visible.
+        if (counterText != null)
         {
-            totalFound = DiscoveryManager.Instance.GetDiscoveredCount();
-            totalObjects = DiscoveryManager.Instance.GetTotalCount();
+            float t = 0f;
+            while (t < 1.5f)
+            {
+                t += Time.deltaTime;
+                int value = Mathf.RoundToInt(Mathf.Lerp(0, totalFound, t / 1.5f));
+                counterText.text = $"Elementos encontrados: {value} / {totalObjects}";
+                yield return null;
+            }
+
+            counterText.text = $"Elementos encontrados: {totalFound} / {totalObjects}";
+        }
+    }
+
+    // Regresa del outro a la experiencia ocultando el panel final y reproduciendo
+    // la transición (fade + narración) correspondiente a la última época.
+    public void ReturnToExperience()
+    {
+        if (isTransitioning) return;
+
+        isTransitioning = true;
+        UpdateButtons();
+
+        if (outroVideo != null)
+        {
+            outroVideo.Stop();
         }
 
-        float t = 0f;
-        while (t < 1.5f)
+        // Ocultar botones propios del outro.
+        if (ctaButton != null) ctaButton.gameObject.SetActive(false);
+        if (creditsButton != null) creditsButton.gameObject.SetActive(false);
+        if (closeCreditsButton != null) closeCreditsButton.gameObject.SetActive(false);
+        if (outroBackButton != null) outroBackButton.gameObject.SetActive(false);
+
+        // Ocultar el panel final. fadeGroup se dibuja por encima del outro, así que
+        // PerformFullTransition lo cubrirá con el fade a negro de inmediato.
+        if (videoGroup != null)
         {
-            t += Time.deltaTime;
-            int value = Mathf.RoundToInt(Mathf.Lerp(0, totalFound, t / 1.5f));
-            counterText.text = $"Encontrados: {value} / {totalObjects}";
-            yield return null;
+            videoGroup.alpha = 0f;
+            videoGroup.gameObject.SetActive(false);
         }
 
-        counterText.text = $"Encontrados: {totalFound} / {totalObjects}";
-
-        yield return StartCoroutine(FadeText(finalMessage, 0, 1, 1f));
-
-        if (ctaButton != null)
+        if (outroGroup != null)
         {
-            Debug.Log("CTA SHOWN");
-
-            ctaButton.gameObject.SetActive(true);
-            ctaButton.interactable = true;
+            outroGroup.alpha = 0f;
+            outroGroup.interactable = false;
+            outroGroup.blocksRaycasts = false;
+            outroGroup.gameObject.SetActive(false);
         }
 
-        if (creditsButton != null)
-        {
-            Debug.Log("CREDITS BUTTON SHOWN");
-
-            creditsButton.gameObject.SetActive(true);
-            creditsButton.interactable = true;
-        }
-
-        // El botón "Volver" se activa por onClick del botón Créditos (en escena),
-        // pero su m_Interactable viene en 0; lo dejamos preparado como interactivo
-        // para que responda al click cuando se muestre.
-        if (closeCreditsButton != null)
-        {
-            closeCreditsButton.interactable = true;
-        }
-
-        isTransitioning = false;
+        // Reproducir la transición de la última época (reutiliza la misma lógica
+        // que la navegación normal: fade, narración, botón Saltar y reveal).
+        StartCoroutine(PerformFullTransition(environments.Length - 1));
     }
 
     void UpdateButtons()

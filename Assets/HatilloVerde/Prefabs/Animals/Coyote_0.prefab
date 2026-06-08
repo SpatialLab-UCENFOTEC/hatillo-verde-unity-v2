@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableInfo
   title: Coyotes
-  description: "El coyote, Canis latrans, es un c\xE1nido peque\xF1o pariente de
+  description: "El coyote, <i>Canis latrans</i>, es un c\xE1nido peque\xF1o pariente de
     los lobos y los perros. Crecen y viven en grupos sociales familiares. Al ser
     un depredador, su presencia en un ecosistema implica que todos los engranajes
     del ciclo de la vida: plantas, herb\xEDvoros, descomponedores. "

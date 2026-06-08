@@ -29,13 +29,31 @@ public class DiscoveryManager : MonoBehaviour
 
         foreach (InteractableInfo obj in allObjects)
         {
-            if (obj.CompareTag("Discoverable"))
-            {
-                totalObjects++;
-            }
+            // Solo cuentan los elementos realmente interactivos: tag Discoverable,
+            // el componente InteractableInfo habilitado y un Collider habilitado.
+            // Se filtra por collider HABILITADO (no por GameObject activo en
+            // jerarquía) para incluir las épocas que arrancan desactivadas.
+            if (!obj.CompareTag("Discoverable")) continue;
+            if (!obj.enabled) continue;
+            if (!HasEnabledCollider(obj)) continue;
+
+            totalObjects++;
         }
 
         UpdateUI();
+    }
+
+    // True si el objeto (o un hijo, incluso inactivo) tiene un Collider habilitado.
+    // El raycast de interacción usa colliders, así que un collider deshabilitado
+    // hace el elemento no interactivo y no debe contarse.
+    bool HasEnabledCollider(Component obj)
+    {
+        Collider[] colliders = obj.GetComponentsInChildren<Collider>(true);
+        foreach (Collider col in colliders)
+        {
+            if (col.enabled) return true;
+        }
+        return false;
     }
 
     public void RegisterDiscovery()
@@ -65,7 +83,7 @@ public class DiscoveryManager : MonoBehaviour
     {
         if (counterText != null)
         {
-            counterText.text = "Encontrados: " + discoveredObjects + " / " + totalObjects;
+            counterText.text = "Elementos encontrados: " + discoveredObjects + " / " + totalObjects;
         }
     }
 }
