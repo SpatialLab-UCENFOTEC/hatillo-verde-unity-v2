@@ -9,7 +9,8 @@ public class DiscoveryManager : MonoBehaviour
     public TextMeshProUGUI counterText;
 
     [Header("Stats")]
-    private int totalObjects;
+    // Total fijo de elementos de la experiencia (hardcodeado a pedido).
+    private int totalObjects = 27;
     private int discoveredObjects = 0;
 
     void Awake()
@@ -19,45 +20,14 @@ public class DiscoveryManager : MonoBehaviour
 
     void Start()
     {
-        InteractableInfo[] allObjects =
-            FindObjectsByType<InteractableInfo>(
-                FindObjectsInactive.Include,
-                FindObjectsSortMode.None
-            );
-
-        totalObjects = 0;
-
-        foreach (InteractableInfo obj in allObjects)
-        {
-            // Solo cuentan los elementos realmente interactivos: tag Discoverable,
-            // el componente InteractableInfo habilitado y un Collider habilitado.
-            // Se filtra por collider HABILITADO (no por GameObject activo en
-            // jerarquía) para incluir las épocas que arrancan desactivadas.
-            if (!obj.CompareTag("Discoverable")) continue;
-            if (!obj.enabled) continue;
-            if (!HasEnabledCollider(obj)) continue;
-
-            totalObjects++;
-        }
-
         UpdateUI();
-    }
-
-    // True si el objeto (o un hijo, incluso inactivo) tiene un Collider habilitado.
-    // El raycast de interacción usa colliders, así que un collider deshabilitado
-    // hace el elemento no interactivo y no debe contarse.
-    bool HasEnabledCollider(Component obj)
-    {
-        Collider[] colliders = obj.GetComponentsInChildren<Collider>(true);
-        foreach (Collider col in colliders)
-        {
-            if (col.enabled) return true;
-        }
-        return false;
     }
 
     public void RegisterDiscovery()
     {
+        // No permitir superar el total fijo.
+        if (discoveredObjects >= totalObjects) return;
+
         discoveredObjects++;
 
         UpdateUI();

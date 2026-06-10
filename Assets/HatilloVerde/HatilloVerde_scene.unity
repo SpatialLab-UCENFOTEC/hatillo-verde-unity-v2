@@ -2176,7 +2176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Call to Action
+  m_text: "Conoce m\xE1s del proyecto"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -20641,7 +20641,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.001335144, y: -388}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 252.8, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1469300484
 MonoBehaviour:
@@ -31934,7 +31934,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 2dfc989ac2daf35408b22792db18cebd, type: 2}
+  m_Texture: {fileID: 8400000, guid: 1243646b922b1453faf7bca1770f4d02, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -32039,8 +32039,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3787710119288448016, guid: 98abaea6fb0fce74096061f3b57f9fde, type: 3}
       propertyPath: description
-      value: "El \xE1rbol de Jocote, Spondias purpurea,  es una de las frutas m\xE1s
-        apetecidas en Costa Rica. Es nativa de mesoam\xE9rica, y fue domesticada
+      value: "El \xE1rbol de Jocote, <i>Spondias purpurea</i>,  es una de las frutas
+        m\xE1s apetecidas en Costa Rica. Es nativa de mesoam\xE9rica, y fue domesticada
         por las comunidades originarias de M\xE9xico y Guatemala hace miles de a\xF1os.
         Es fuente de alimento para aves y otros animales."
       objectReference: {fileID: 0}
