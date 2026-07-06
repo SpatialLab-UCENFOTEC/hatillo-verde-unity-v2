@@ -168,6 +168,9 @@ public class TransitionManager : MonoBehaviour
         yield return StartCoroutine(FadeCanvas(fadeGroup, 0, 1, 0.5f));
         yield return StartCoroutine(FadeText(transitionText, 0, 1, 0.4f));
 
+        // Pantalla en negro total: apaga el 3D durante la narración.
+        if (Scene3DGate.Instance != null) Scene3DGate.Instance.Hide();
+
         // 2. Change environment while screen is black
         currentPeriodIndex = targetIndex;
         for (int i = 0; i < environments.Length; i++)
@@ -202,6 +205,8 @@ public class TransitionManager : MonoBehaviour
         }
 
         // 4. Fade back out to reveal the new era
+        // Enciende el 3D bajo el negro, antes de revelar.
+        if (Scene3DGate.Instance != null) Scene3DGate.Instance.Show();
         yield return StartCoroutine(FadeText(transitionText, 1, 0, 0.4f));
         yield return StartCoroutine(FadeCanvas(fadeGroup, 1, 0, 0.6f));
 
@@ -272,6 +277,9 @@ public class TransitionManager : MonoBehaviour
 
         // Fade único de todo el panel (incluye textos y botones).
         yield return StartCoroutine(FadeCanvas(outroGroup, 0, 1, 1f));
+
+        // Panel del outro ya opaco: apaga el 3D para que el video vaya fluido.
+        if (Scene3DGate.Instance != null) Scene3DGate.Instance.Hide();
 
         if (videoGroup != null)
         {

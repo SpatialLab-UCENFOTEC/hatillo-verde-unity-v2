@@ -92,6 +92,9 @@ public class IntroManager : MonoBehaviour
         isIntroPlaying = false;
         UpdateButtons();
 
+        // Enciende el 3D justo al revelar la experiencia.
+        if (Scene3DGate.Instance != null) Scene3DGate.Instance.Show();
+
         experiencePanel.SetActive(true);
     }
 
