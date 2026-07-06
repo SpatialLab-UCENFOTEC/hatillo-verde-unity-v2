@@ -9428,6 +9428,7 @@ GameObject:
   - component: {fileID: 705449754}
   - component: {fileID: 705449752}
   - component: {fileID: 705449751}
+  - component: {fileID: 705449757}
   m_Layer: 5
   m_Name: Video Outro
   m_TagString: Untagged
@@ -15585,6 +15586,7 @@ GameObject:
   - component: {fileID: 1154662748}
   - component: {fileID: 1154662747}
   - component: {fileID: 1154662746}
+  - component: {fileID: 1154662752}
   m_Layer: 5
   m_Name: Video Intro
   m_TagString: Untagged
@@ -32651,3 +32653,33 @@ SceneRoots:
   - {fileID: 1201139409}
   - {fileID: 805031616}
   - {fileID: 1817760114}
+--- !u!114 &1154662752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154662744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c1bc89a167d4b2e9a9a982f87e485f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desktopUrlOverride: 
+  mobileUrlOverride: 
+  maxCanvasWidthForMobile: 900
+--- !u!114 &705449757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705449749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c1bc89a167d4b2e9a9a982f87e485f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desktopUrlOverride: 
+  mobileUrlOverride: 
+  maxCanvasWidthForMobile: 900
