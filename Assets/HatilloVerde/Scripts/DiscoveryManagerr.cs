@@ -10,7 +10,7 @@ public class DiscoveryManager : MonoBehaviour
 
     [Header("Stats")]
     // Total fijo de elementos de la experiencia (hardcodeado a pedido).
-    private int totalObjects = 27;
+    private int totalObjects = 31;
     private int discoveredObjects = 0;
 
     void Awake()
