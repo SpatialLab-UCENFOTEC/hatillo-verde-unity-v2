@@ -25,6 +25,9 @@ public class InfoPanelController : MonoBehaviour
     [Header("UI")]
     public GameObject closeButton;
 
+    [Tooltip("ScrollRect de la descripción; se reinicia arriba cada vez que se abre el modal.")]
+    public ScrollRect descriptionScroll;
+
     private Coroutine currentAudioCoroutine;
 
     void Start()
@@ -88,6 +91,33 @@ public class InfoPanelController : MonoBehaviour
             if (data.displayImage != null)
                 displayImage.sprite = data.displayImage;
         }
+
+        ResetDescriptionScroll();
+        StartCoroutine(ResetDescriptionScrollNextFrame());
+    }
+
+    private void ResetDescriptionScroll()
+    {
+        if (descriptionScroll == null) return;
+
+        descriptionScroll.velocity = Vector2.zero;
+
+        // El alto del contenido depende del texto recién asignado, así que hay
+        // que rehacer el layout antes de fijar la posición del scroll.
+        Canvas.ForceUpdateCanvases();
+
+        if (descriptionScroll.content != null)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(descriptionScroll.content);
+
+        descriptionScroll.verticalNormalizedPosition = 1f;
+    }
+
+    // TextMeshPro puede recalcular su tamaño un frame después; repetir aquí evita
+    // que el scroll quede a media altura cuando eso ocurre.
+    private IEnumerator ResetDescriptionScrollNextFrame()
+    {
+        yield return null;
+        ResetDescriptionScroll();
     }
 
     private IEnumerator LoadAudio(string url)

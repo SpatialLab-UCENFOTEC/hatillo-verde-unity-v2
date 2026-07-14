@@ -26,8 +26,14 @@ public class IntroManager : MonoBehaviour
     [Tooltip("Botón 'Saltar' duplicado en el canvas del intro (el original vive bajo fadeGroup y está oculto durante el intro).")]
     public Button skipButton;
 
+    [Header("Start Gate")]
+    [Tooltip("Overlay a pantalla completa mostrado hasta el primer toque; ese toque desbloquea el audio en iOS y arranca el video del intro.")]
+    public GameObject startOverlay;
+
     private bool isIntroPlaying = true;
     private bool skipIntroRequested = false;
+    private bool introBegun = false;
+    private bool introProceeded = false;
 
     [Header("Config")]
     public float fadeDuration = 1f;
@@ -62,17 +68,67 @@ public class IntroManager : MonoBehaviour
             skipButton.onClick.AddListener(SkipIntro);
         }
 
+        // Deja listo el primer frame como póster; el video no arranca hasta el
+        // primer toque (gate que desbloquea el audio en iOS).
+        if (introVideo != null)
+        {
+            introVideo.Prepare();
+        }
+
         isIntroPlaying = true;
         UpdateButtons();
 
     }
 
+    // Primer toque (botón del overlay o del intro): desbloquea el audio en iOS
+    // y arranca el video. Segundo toque o fin del video: avanza a la experiencia.
     public void StartExperience()
     {
-        // Detener video
-        if (introVideo != null && introVideo.isPlaying)
+        if (!introBegun)
         {
+            BeginIntro();
+            return;
+        }
+
+        ProceedFromIntro();
+    }
+
+    public void BeginIntro()
+    {
+        if (introBegun) return;
+        introBegun = true;
+
+        if (startOverlay != null)
+        {
+            startOverlay.SetActive(false);
+        }
+
+        if (introVideo != null)
+        {
+            introVideo.loopPointReached += OnIntroVideoFinished;
             introVideo.Stop();
+            introVideo.Play();
+        }
+    }
+
+    private void OnIntroVideoFinished(VideoPlayer vp)
+    {
+        vp.loopPointReached -= OnIntroVideoFinished;
+        ProceedFromIntro();
+    }
+
+    private void ProceedFromIntro()
+    {
+        if (introProceeded) return;
+        introProceeded = true;
+
+        if (introVideo != null)
+        {
+            introVideo.loopPointReached -= OnIntroVideoFinished;
+            if (introVideo.isPlaying)
+            {
+                introVideo.Stop();
+            }
         }
 
         StartCoroutine(Flow());
