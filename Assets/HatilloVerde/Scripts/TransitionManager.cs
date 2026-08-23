@@ -47,6 +47,49 @@ public class TransitionManager : MonoBehaviour
     private int currentPeriodIndex = 0;
     private bool isTransitioning = false;
 
+    public int CurrentPeriodIndex => currentPeriodIndex;
+    public int PeriodCount => environments != null ? environments.Length : 0;
+    public bool IsBusy => isTransitioning;
+
+    /// <summary>
+    /// Voice / programmatic jump. playNarration=false skips the long audio beat.
+    /// </summary>
+    public void GoToPeriod(int index, bool playNarration = false)
+    {
+        if (isTransitioning) return;
+        if (environments == null || index < 0 || index >= environments.Length) return;
+
+        isTransitioning = true;
+        UpdateButtons();
+
+        if (playNarration)
+            StartCoroutine(PerformFullTransition(index));
+        else
+            StartCoroutine(SwapPeriodFast(index));
+    }
+
+    IEnumerator SwapPeriodFast(int targetIndex)
+    {
+        if (narrationSource != null && narrationSource.isPlaying)
+            narrationSource.Stop();
+
+        yield return StartCoroutine(FadeCanvas(fadeGroup, 0, 1, 0.25f));
+
+        currentPeriodIndex = targetIndex;
+        for (int i = 0; i < environments.Length; i++)
+        {
+            if (environments[i] != null)
+                environments[i].SetActive(i == currentPeriodIndex);
+        }
+
+        if (Scene3DGate.Instance != null)
+            Scene3DGate.Instance.Show();
+
+        yield return StartCoroutine(FadeCanvas(fadeGroup, 1, 0, 0.3f));
+        isTransitioning = false;
+        UpdateButtons();
+    }
+
     void Start()
     {
 
