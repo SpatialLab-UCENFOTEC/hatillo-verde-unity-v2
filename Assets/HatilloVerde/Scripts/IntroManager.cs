@@ -77,7 +77,57 @@ public class IntroManager : MonoBehaviour
 
         isIntroPlaying = true;
         UpdateButtons();
+    }
 
+    /// <summary>
+    /// Quest first build: skip the overlay intro video and land in the 3D walkthrough.
+    /// </summary>
+    public void SkipStraightToExperience()
+    {
+        introBegun = true;
+        introProceeded = true;
+        skipIntroRequested = true;
+
+        if (startOverlay != null)
+            startOverlay.SetActive(false);
+
+        if (introVideo != null)
+        {
+            introVideo.loopPointReached -= OnIntroVideoFinished;
+            if (introVideo.isPlaying)
+                introVideo.Stop();
+        }
+
+        if (subIntroAudioSource != null && subIntroAudioSource.isPlaying)
+            subIntroAudioSource.Stop();
+
+        if (introPanel != null)
+        {
+            introPanel.alpha = 0f;
+            introPanel.interactable = false;
+            introPanel.blocksRaycasts = false;
+            introPanel.gameObject.SetActive(false);
+        }
+
+        if (subIntroPanel != null)
+        {
+            subIntroPanel.alpha = 0f;
+            subIntroPanel.interactable = false;
+            subIntroPanel.blocksRaycasts = false;
+            subIntroPanel.gameObject.SetActive(false);
+        }
+
+        if (skipButton != null)
+            skipButton.gameObject.SetActive(false);
+
+        isIntroPlaying = false;
+        UpdateButtons();
+
+        if (Scene3DGate.Instance != null)
+            Scene3DGate.Instance.Show();
+
+        if (experiencePanel != null)
+            experiencePanel.SetActive(true);
     }
 
     // Primer toque (botón del overlay o del intro): desbloquea el audio en iOS

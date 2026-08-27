@@ -13,7 +13,7 @@ using UnityEngine.Android;
 /// </summary>
 public class VoiceCopilot : MonoBehaviour
 {
-    static string _hud = "Mantén Espacio y habla.  «muéstrame 1890»  ·  «dónde está la rana»";
+    static string _hud = "Mantén Espacio y habla";
 
     [SerializeField] string openaiApiKey;
     [SerializeField] int maxSeconds = 8;
@@ -24,17 +24,25 @@ public class VoiceCopilot : MonoBehaviour
         "El usuario habla en español. NO chateas. Respondes SOLO un JSON, sin markdown:\n" +
         "{\"action\":\"SetEra\",\"year\":1890}\n" +
         "{\"action\":\"FocusPOI\",\"id\":\"rana\"}\n" +
+        "{\"action\":\"ClickButton\",\"id\":\"next\"}\n" +
         "{\"action\":\"Say\",\"text\":\"frase corta\"}\n" +
         "SetEra: 1890 pasado cafetalero; 2026 presente; 2100 futuro restaurado.\n" +
         "FocusPOI ids: rana, pinzon, rio, coyote, jaguar, armadillo, garza, mapache, zorro, beneficio, biodiversidad, especies, indigenas, vecinos, recreativas, neo, invasiones.\n" +
+        "ClickButton id = texto visible del botón (continuar, atrás, saltar, comenzar, créditos, entrar, volver).\n" +
         "Si no puedes ejecutar, Say en una línea. Nunca inventes otras actions.";
 
     HatilloVoiceBridge _bridge;
     AudioClip _clip;
     bool _recording;
     string _mic;
+    float _downTime;
 
-    public static void ShowStatus(string msg) => _hud = msg;
+    public static void ShowStatus(string msg)
+    {
+        _hud = msg;
+        if (HatilloXrRig.StatusLabel != null)
+            HatilloXrRig.StatusLabel.text = msg;
+    }
 
     void Awake()
     {
@@ -51,17 +59,30 @@ public class VoiceCopilot : MonoBehaviour
 #endif
         yield return Application.RequestUserAuthorization(UserAuthorization.Microphone);
         if (Microphone.devices.Length == 0)
+        {
             Debug.LogError("[VoiceCopilot] No microphone.");
+            ShowStatus("Unity no ve el micrófono. En macOS: Ajustes → Privacidad → Micrófono → Unity.");
+        }
         else
+        {
             _mic = Microphone.devices[0];
+            Debug.Log("[VoiceCopilot] mic: " + _mic);
+            var warmup = Microphone.Start(_mic, false, 1, 44100);
+            yield return null;
+            Microphone.End(_mic);
+        }
     }
 
     void Update()
     {
-        var kb = Keyboard.current;
-        if (kb == null) return;
-        if (kb.spaceKey.wasPressedThisFrame) PushToTalkDown();
-        if (kb.spaceKey.wasReleasedThisFrame) PushToTalkUp();
+        bool holding = false;
+        if (Keyboard.current != null && Keyboard.current.spaceKey.isPressed)
+            holding = true;
+        if (HatilloXrRig.RightGripHeld)
+            holding = true;
+
+        if (holding && !_recording) PushToTalkDown();
+        if (!holding && _recording) PushToTalkUp();
     }
 
     public void PushToTalkDown()
@@ -70,25 +91,62 @@ public class VoiceCopilot : MonoBehaviour
             return;
         if (string.IsNullOrEmpty(openaiApiKey))
         {
-            ShowStatus("Falta API key (Inspector o Resources/openai_key.txt).");
+            ShowStatus("Falta API key de OpenAI.");
             return;
         }
 
-        _clip = Microphone.Start(_mic, false, maxSeconds, 16000);
+        _clip = Microphone.Start(_mic, false, maxSeconds, 44100);
+        if (_clip == null)
+        {
+            ShowStatus("No pude abrir el micrófono.");
+            return;
+        }
+
         _recording = true;
-        ShowStatus("Escuchando… suelta Espacio.");
+        _downTime = Time.unscaledTime;
+        ShowStatus("Escuchando… suelta grip o Espacio.");
     }
 
     public void PushToTalkUp()
     {
         if (!_recording) return;
         _recording = false;
+        StartCoroutine(StopAndProcess());
+    }
+
+    IEnumerator StopAndProcess()
+    {
+        yield return null;
         int pos = Microphone.GetPosition(_mic);
+        var data = _clip != null ? new float[_clip.samples * _clip.channels] : null;
+        if (_clip != null)
+            _clip.GetData(data, 0);
+
         Microphone.End(_mic);
-        if (_clip == null || pos < 1600)
+
+        if (pos <= 0 && data != null)
+            pos = LastLoudSample(data);
+
+        float held = Time.unscaledTime - _downTime;
+        int fromTime = _clip != null ? Mathf.RoundToInt(held * _clip.frequency) : 0;
+        if (data != null)
+            fromTime = Mathf.Clamp(fromTime, 0, data.Length);
+        // On macOS GetPosition often stays tiny while the clip actually filled.
+        if (fromTime > pos * 2)
+            pos = Mathf.Max(pos, fromTime);
+
+        float rms = Rms(data, pos);
+        Debug.Log($"[VoiceCopilot] held={held:0.00}s pos={pos} rms={rms:0.000} mic={_mic}");
+
+        if (_clip == null || held < 0.25f || pos < 2400)
         {
-            ShowStatus("No escuché nada.");
-            return;
+            ShowStatus($"Mic corto ({held:0.0}s). Mantén Espacio.");
+            yield break;
+        }
+        if (rms < 0.0015f)
+        {
+            ShowStatus("Mic en silencio. Habla más cerca.");
+            yield break;
         }
 
         TrimClip(pos);
@@ -105,6 +163,27 @@ public class VoiceCopilot : MonoBehaviour
         var shortClip = AudioClip.Create("utt", n, _clip.channels, _clip.frequency, false);
         shortClip.SetData(trimmed, 0);
         _clip = shortClip;
+    }
+
+    static int LastLoudSample(float[] data)
+    {
+        int last = 0;
+        for (int i = 0; i < data.Length; i++)
+        {
+            if (Mathf.Abs(data[i]) > 0.008f)
+                last = i;
+        }
+        return last;
+    }
+
+    static float Rms(float[] data, int n)
+    {
+        if (data == null || n <= 0) return 0f;
+        n = Mathf.Min(n, data.Length);
+        double s = 0;
+        for (int i = 0; i < n; i++)
+            s += data[i] * data[i];
+        return (float)System.Math.Sqrt(s / n);
     }
 
     IEnumerator TranscribeAndAct()
@@ -136,6 +215,15 @@ public class VoiceCopilot : MonoBehaviour
 
         ShowStatus("«" + transcript + "»");
 
+        var local = ParseNav(transcript);
+        if (local != null)
+        {
+            yield return _bridge.Apply(local);
+            yield break;
+        }
+        if (_bridge.TryClickSpoken(transcript))
+            yield break;
+
         var body = "{\"model\":\"gpt-4o-mini\",\"temperature\":0,\"messages\":[" +
                    "{\"role\":\"system\",\"content\":" + JsonEscape(systemPrompt) + "}," +
                    "{\"role\":\"user\",\"content\":" + JsonEscape(transcript) + "}]}";
@@ -158,6 +246,19 @@ public class VoiceCopilot : MonoBehaviour
         yield return _bridge.Apply(cmd);
     }
 
+    static CopilotCommand ParseNav(string transcript)
+    {
+        if (string.IsNullOrEmpty(transcript)) return null;
+        var t = transcript.ToLowerInvariant();
+        if (t.Contains("salt"))
+            return new CopilotCommand { action = "ClickButton", id = "skip" };
+        if (t.Contains("volv") || t.Contains("atrás") || t.Contains("atras") || t.Contains("anterior"))
+            return new CopilotCommand { action = "ClickButton", id = "back" };
+        if (t.Contains("contin") || t.Contains("entrar") || t.Contains("siguiente") || t.Contains("adelante"))
+            return new CopilotCommand { action = "ClickButton", id = "next" };
+        return null;
+    }
+
     void ResolveKey()
     {
         if (!string.IsNullOrEmpty(openaiApiKey)) return;
@@ -169,15 +270,23 @@ public class VoiceCopilot : MonoBehaviour
 
     void OnGUI()
     {
+        if (HatilloXrRig.IsActive) return;
+        if (string.IsNullOrEmpty(_hud)) return;
+
+        const float h = 20f;
+        float w = Mathf.Min(280f, Screen.width * 0.36f);
         var style = new GUIStyle(GUI.skin.box)
         {
-            fontSize = 16,
-            alignment = TextAnchor.MiddleLeft,
-            wordWrap = true,
-            padding = new RectOffset(12, 12, 8, 8)
+            fontSize = 11,
+            alignment = TextAnchor.MiddleCenter,
+            wordWrap = false,
+            padding = new RectOffset(6, 6, 1, 1)
         };
         style.normal.textColor = Color.white;
-        GUI.Box(new Rect(16, Screen.height - 64, Mathf.Min(720, Screen.width - 32), 48), _hud, style);
+
+        float x = (Screen.width - w) * 0.5f;
+        float y = Screen.height - 24f;
+        GUI.Box(new Rect(x, y, w, h), _hud, style);
     }
 
     static string StripFences(string s)
