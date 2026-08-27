@@ -13,7 +13,7 @@ public class SelectionManager : MonoBehaviour
 
     void Update()
     {
-        if (Pointer.current == null) return;
+        if (Pointer.current == null && !HatilloXrRig.IsActive) return;
 
         // Bloquear interaccion 3D si hay UI abierta
         if (InfoPanelController.IsUIOpen)
@@ -26,12 +26,20 @@ public class SelectionManager : MonoBehaviour
             return;
         }
 
-        Vector2 screenPos = Pointer.current.position.ReadValue();
-        Ray ray = Camera.main.ScreenPointToRay(screenPos);
+        Ray ray;
+        bool xrRay = HatilloXrRig.TryGetRightRay(out ray);
+        if (!xrRay)
+        {
+            if (Pointer.current == null) return;
+            Vector2 screenPos = Pointer.current.position.ReadValue();
+            if (Camera.main == null) return;
+            ray = Camera.main.ScreenPointToRay(screenPos);
+        }
+
         RaycastHit hit;
 
         // HOVER
-        if (Physics.Raycast(ray, out hit, 100f, interactableLayer))
+        if (Physics.Raycast(ray, out hit, xrRay ? 40f : 100f, interactableLayer))
         {
             InteractableHighlight newHover =
                 hit.transform.GetComponentInParent<InteractableHighlight>();
@@ -54,7 +62,11 @@ public class SelectionManager : MonoBehaviour
         }
 
         // CLICK
-        if (Pointer.current.press.wasPressedThisFrame)
+        bool pressed = HatilloXrRig.IsActive
+            ? HatilloXrRig.RightTriggerPressedThisFrame
+            : Pointer.current != null && Pointer.current.press.wasPressedThisFrame;
+
+        if (pressed)
         {
             // Solo bloquear si clickeamos un botón real
             if (IsPointerOverBlockingUI())
@@ -83,6 +95,10 @@ public class SelectionManager : MonoBehaviour
 
     bool IsPointerOverBlockingUI()
     {
+        if (EventSystem.current == null) return false;
+        if (HatilloXrRig.IsActive)
+            return false;
+
         PointerEventData pointerData = new PointerEventData(EventSystem.current);
         pointerData.position = Pointer.current.position.ReadValue();
 
